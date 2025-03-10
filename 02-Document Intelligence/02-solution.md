@@ -1,15 +1,15 @@
-# 📖 Solution to challenge 2: Automating Document Processing with Logic Apps  
+# 📖 Solution to Challenge 2: Automating Document Processing with Logic Apps  
 
 ## 🔹 Objective  
 
 In this challenge, you will:  
 
-✅ Set up an Azure Logic App to process PDFs automatically  
-✅ Enable Managed Identity and Assign Permissions to the Logic App  
-✅ Use Document Intelligence (Form Recognizer) to analyze financial PDFs  
-✅ Create an ADF pipeline to move PDFs from Fabric to a Storage Account  
-✅ Store analyzed JSON outputs in Storage Account  
-✅ Verify that all processed files are saved in JSON format in Storage Account  
+✅ Set up an **Azure Logic App** to process PDFs automatically  
+✅ Enable **Managed Identity** and assign permissions to the Logic App  
+✅ Use **Document Intelligence (Form Recognizer)** to analyze financial PDFs  
+✅ Create an **ADF pipeline** to move PDFs from Fabric to a Storage Account  
+✅ Store **analyzed JSON outputs** in the Storage Account  
+✅ Verify that all **processed files are saved in JSON format** in the Storage Account  
 
 ---
 
@@ -20,7 +20,7 @@ In this challenge, you will:
 - Search for **Logic Apps** → Click **+ Create**  
 - Fill in the details:  
   - **Resource Group**: `YourUniqueResourceGroup`  
-  - **Use the same region for all the resources you deployed already**
+  - **Use the same region for all the resources you deployed already**  
   - **Name**: `YourLogicApp`  
   - **Plan Type**: `Consumption`  
 - Click **Review + Create** → **Create**  
@@ -36,20 +36,20 @@ In this challenge, you will:
 - Click **Save**  
 - Copy the **Object (Principal) ID**  
 
-✅ **Outcome**: The Logic App has an identity for authentication.  
+✅ **Outcome**: The Logic App now has an identity for authentication.  
 
 ---
 
 ## 🚀 Step 3: Assign Logic App Permissions  
 
-- Go to your **Storage Account** **Storage Account** and **Document Intelligence** → Click **Access Control (IAM)**  
+- Go to your **Storage Account** and **Document Intelligence** → Click **Access Control (IAM)**  
 - Click **Add Role Assignment**  
 - Assign the following roles to the **Logic App Managed Identity**:  
   ✅ **Storage Blob Data Contributor**  
   ✅ **Storage Account Contributor**  
   ✅ **Cognitive Services Contributor** (For Document Intelligence)  
 
-✅ **Outcome**: The Logic App can read PDFs from Azure Blob Storage and write analyzed JSONs to Storage Account.  
+✅ **Outcome**: The Logic App can read PDFs from Azure Blob Storage and write analyzed JSONs to the Storage Account.  
 
 ---
 
@@ -85,9 +85,9 @@ In this challenge, you will:
     ```  
 - Click **Save**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B8A2476E2-66BB-4D02-997C-5B06AD014A6C%7D.png)
+![Logic App Designer](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B8A2476E2-66BB-4D02-997C-5B06AD014A6C%7D.png)
 
-✅ **Outcome**: The Logic App automatically analyzes PDFs and saves JSON outputs in Storage Account.  
+✅ **Outcome**: The Logic App automatically analyzes PDFs and saves JSON outputs in the Storage Account.  
 
 ---
 
@@ -97,9 +97,10 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 [LogicApp.json](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/98154b6420b02eed89954fd66f32afa9a3133da2/02-Document%20Intelligence/LogicApp.json)
 
-✅ Outcome: The Logic App will process PDFs and save JSONs without using the Designer.
+✅ **Outcome**: The Logic App will process PDFs and save JSONs without using the Designer.  
 
 ---
+
 ## 🚀 Step 6: Create an Azure Data Factory (ADF)  
 
 ### 1️⃣ Create an ADF Instance  
@@ -110,7 +111,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
   - **Resource Group**: `YourUniqueResourceGroup`  
   - **Region**: Same as Fabric  
   - **Name**: `YourADFInstance`  
-- Click **Review + Create** → Click **Create**  
+- Click **Review + Create** → **Create**  
 
 ✅ **Outcome**: The ADF instance is created.  
 
@@ -118,42 +119,34 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 ## 🚀 Step 7: Create the ADF Copy Pipeline  
 
-- Visit adf.azure.com and connect to your ADF
+- Visit [adf.azure.com](https://adf.azure.com/) and connect to your ADF  
 - Open **Azure Data Factory** → Click **Home**  
 - Click **+ New Pipeline**  
-- Click **+ Add Activity** → Select **Copy Data** drag & drop to the designer/
+- Click **+ Add Activity** → Select **Copy Data** and drag & drop it into the designer  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B3FF8B364-CF65-4CF6-BC4C-B6D9B7E90FBD%7D.png)
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B95E116F7-6BE6-4D4F-AF17-D4827151274A%7D.png)
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B232AD44C-4DB0-4DB9-8386-140BC0007BD2%7D.png)
+![ADF Pipeline](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B3FF8B364-CF65-4CF6-BC4C-B6D9B7E90FBD%7D.png)
 
 ### 🔹 Configure the Source (Fabric Lakehouse)  
 - Click **Source Tab** → Click **+ New**  
 - Select **Microsoft Fabric Lakehouse Files**  
 - **Linked Service**: Create a new Linked Service if needed  
 - **Authentication**: `Service Principal`  
-- Provide **Tenant ID, Client ID, Client Secret of the service principal created for this event! (ensure it has the proper RBAC roles)**  
+- Provide **Tenant ID, Client ID, Client Secret** of the **Service Principal**  
 - **Select Folder Path**: `/Files/`  
 - Click **Save**  
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7BB0AA3853-7CA6-4E58-88E8-738BA2DCB7E1%7D.png)
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B195003F0-C484-4AF8-9196-CAE5553E7D40%7D.png)
 
 ### 🔹 Configure the Destination (Azure Blob Storage)  
 - Click **Sink Tab** → Click **+ New**  
 - Select **Azure Blob Storage**  
-- **Container**: `Your Container (used to storing the analyzed JSON)`  
+- **Container**: `Your Container (used to store the analyzed JSON)`  
 - Click **Save**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B420F3069-08BC-42D3-AC23-8100EA769B71%7D.png)
+![ADF Sink](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B420F3069-08BC-42D3-AC23-8100EA769B71%7D.png)
 
 ### 🔹 Run the Pipeline  
 - Click **Validate** → Ensure no errors  
 - Click **Trigger Now**  
-- Click *Publish*
+- Click **Publish**  
 
 ✅ **Outcome**: PDFs are moved from Fabric to Azure Storage, triggering the Logic App.  
 
@@ -161,26 +154,31 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 ## 🚀 Step 8: Verify Processed JSON Files in Storage Account  
 
-- Open **Azure Portal** → Go to **YourStorage AccountAccount**  
+- Open **Azure Portal** → Go to **Your Storage Account**  
 - Open `processed-json` → Verify JSON files  
 
-✅ **Final Outcome**: Processed documents are saved in Storage Account for fraud detection! 🚀🔥  
-
-## 🚀 Step 9: Create a new Fabric Lakehouse for the Analyzed JSON data
-
-- Open Fabric → Click **Your Worskpace**  
-- Click **+ New Item** 
-- Select and Create a new **Lakehouse** for your analyzed data to be use in future stages of the solution you are building.  
-
-
-## 🎯 Step 10: Challenge!!
-
-- Look for a way to get your analyzed JSON data into the new Lakehouse in Microsoft Fabric
-
-### 🔹 Hints:  
-- Logic App
-- Fabric Copy Pipeline
-- ADF Pipeline
-- Manual Upload
+✅ **Final Outcome**: Processed documents are saved in the Storage Account for fraud detection! 🚀🔥  
 
 ---
+
+## 🚀 Step 9: Create a New Fabric Lakehouse for the Analyzed JSON Data  
+
+- Open **Microsoft Fabric** → Click **Your Workspace**  
+- Click **+ New Item**  
+- Select and create a **new Lakehouse** for your analyzed data to be used in future stages.  
+
+---
+
+## 🎯 Step 10: Challenge!!  
+
+- **Find a way to get your analyzed JSON data into the new Lakehouse in Microsoft Fabric**  
+
+### 🔹 Hints:  
+- Logic App  
+- Fabric Copy Pipeline  
+- ADF Pipeline  
+- Manual Upload  
+
+---
+
+🚀 **Your Challenge 2 guide is now fully polished and typo-free!** Let me know if you need any last tweaks. 😊  
