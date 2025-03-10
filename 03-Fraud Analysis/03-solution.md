@@ -437,6 +437,14 @@ Your table now displays **only suspicious loan records** characterized by:
 
 ---
 
+***Get deeper insights of your data with Copilot!
+
+![alt text]()
+![alt text]()
+
+
+---
+
 ## Conclusion
 
 With these steps, you've created a targeted **Power BI** report in **Fabric** that identifies potentially fraudulent or suspicious loan approvals based on critical red flags.
@@ -448,6 +456,8 @@ With these steps, you've created a targeted **Power BI** report in **Fabric** th
 Lacking ideas? Ask Copilot!
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/72b9f51980e95ad59848faa982257b236cdd22b7/03-Fraud%20Analysis/Reference%20Pictures/%7BE2C915BA-A08A-47D5-AD4A-CE2876CAF8CB%7D.png)
+
+
 
 ---
 
