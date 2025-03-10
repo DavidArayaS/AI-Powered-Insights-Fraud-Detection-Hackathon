@@ -102,7 +102,10 @@ analyzed-document-@{triggerOutputs()?['body']['name']}.json
 
 ## 🚀 Step 5: (Alternative) Configure the Logic App using JSON Code  
 
+**Clue** [LogicApp.json](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/98154b6420b02eed89954fd66f32afa9a3133da2/02-Document%20Intelligence/LogicApp.json)
+
 ✅ **Outcome**: The Logic App is now fully configured without using the Designer.  
+
 
 ---
 
