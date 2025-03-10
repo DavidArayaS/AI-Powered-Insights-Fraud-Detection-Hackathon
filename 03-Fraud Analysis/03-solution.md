@@ -262,7 +262,7 @@ print("✅ Done! Created 'FactFinancialTable' with numeric columns, renamed fiel
 3. Click **Create**  
 4. Click **Open the Data model** 
 
-![alt text] (https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f28402554e0ed6ac1e8b909437ebb55451bec134/03-Fraud%20Analysis/Reference%20Pictures/%7BDD1083C8-3569-4E0E-A7DA-700978A6854E%7D.png)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f28402554e0ed6ac1e8b909437ebb55451bec134/03-Fraud%20Analysis/Reference%20Pictures/%7BDD1083C8-3569-4E0E-A7DA-700978A6854E%7D.png)
 
 5. Enter **Editing Mode**
 
