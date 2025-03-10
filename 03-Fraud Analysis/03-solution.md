@@ -8,17 +8,17 @@ This guide will walk you through the entire process of extracting, transforming,
 ✅ Store and process financial data in **Fabric Lakehouse**  
 ✅ Run a **Notebook (PySpark) to transform data**  
 ✅ Create a **Semantic Model**  
-✅ Automatically generate a **Power BI report**  
+✅ Generate a **Power BI reports**  
 
 ---
 
 ## 🚀 Step 1: Ensure Your Data is in Fabric Lakehouse  
 
-💡 **Before proceeding, make sure** that your **financial data (JSON files)** are already uploaded to Fabric Lakehouse under `Files/json`.  
+💡 **Before proceeding, make sure** that your **financial data (JSON files)** are already uploaded to Fabric Lakehouse under `Files/`.  
 
 ### 1️⃣ Verify Data Storage in Fabric Lakehouse  
 1. Open **Microsoft Fabric**  
-2. Navigate to your **Lakehouse workspace**  
+2. Navigate to your **Lakehouse**  
 3. Under the **Files** section, confirm the presence of `yourfolder` folder  
 4. Ensure it contains **analyzed JSON files**  
 
@@ -32,9 +32,12 @@ This guide will walk you through the entire process of extracting, transforming,
 
 ### 1️⃣ Open a Fabric Notebook  
 
-1. In **Fabric**, go to your **Lakehouse workspace**  
+1. In **Fabric**, go to your **Lakehouse**  
 2. Click **+ New** → **Notebook**  
 3. Select **PySpark** as the language  
+
+![alt text](notebook)
+![alt text](py)
 
 ### 2️⃣ Copy & Paste the PySpark Code 
 
@@ -46,15 +49,20 @@ This guide will walk you through the entire process of extracting, transforming,
 
 ✅ **Outcome**: A new table **FactFinancialTable** is now available in your **Fabric Lakehouse**.  
 
+
+
 ---
 ## 🚀 Step 3: Create the Lookup or Dimension Tables
 
-1. Use the Excel files provided with your **Data Source Folder**
+1. Use the Excel files provided with your [Dimension Tables](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/9868ec5cf1f4315ae16421983092e1909d0662e0/Data%20Sources/Dimension%20Tables.zip)
+
 2. Open your Lakehose
 3. Click **Get data**
 4. Select **New Dataflow Gen2**
 5. Select the **Enter Data** Option
 6. Create a table for each of the Excel files using their content
+
+![alt text](dataflow)
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/73581913b9b0deb877f6802519195eb50ee19283/03-Fraud%20Analysis/Reference%20Pictures/%7BBC3303EC-5A33-4CB0-9BBC-BE9836A7DD67%7D.png)
 
@@ -70,6 +78,8 @@ This guide will walk you through the entire process of extracting, transforming,
 1. Go to **Microsoft Fabric**  
 2. Click open your Lakehouse and **Click → **Semantic Model**  
 3. Name it **Financial-Semantic-Model**  
+
+![alt text](semantic)
 
 
 ### 2️⃣ Select Your Financial Tables
