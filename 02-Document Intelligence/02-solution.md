@@ -139,9 +139,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - **Select Folder Path**: `/Files/`  
 - Click **Save**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7BB0AA3853-7CA6-4E58-88E8-738BA2DCB7E1%7D.png)
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B195003F0-C484-4AF8-9196-CAE5553E7D40%7D.png)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7BB0AA3853-7CA6-4E58-88E8-738BA2DCB7E1%7D.png)![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B195003F0-C484-4AF8-9196-CAE5553E7D40%7D.png)
 
 ### 🔹 Configure the Destination (Azure Blob Storage)  
 - Click **Sink Tab** → Click **+ New**  
