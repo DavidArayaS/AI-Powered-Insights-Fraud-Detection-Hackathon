@@ -114,7 +114,7 @@ Create One to One relationships between your Factual and Dim Tables
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7BFC9D1153-380A-4BD2-BAF6-0CEA6B30235F%7D.png)
 
-### Build a report to discover Low Risk Investments with High Returns (More than 10%)
+## 🚀 Build a report to discover Low Risk Investments with High Returns (More than 10%)
 
 ## 1. Open Your Dataset and Start a New Report
 
@@ -208,7 +208,7 @@ Since `Risk` is **text**, you’ll filter by **exact value** instead of numeric 
 With these steps, you’ve built a **Power BI** report in **Fabric** that focuses on **investments** where **Risk** is “Low” and **Return_Percentage** exceeds 10. This helps detect anomalies or potential fraud in your financial dataset.
 
 ---
-### Building a “Suspicious Loan Approvals” Report in Power BI 
+## 🚀 Building a “Suspicious Loan Approvals” Report in Power BI 
 
 Below is a **step-by-step** guide to create a Power BI report in **Microsoft Fabric** that highlights **Loan** documents where:
 
@@ -338,7 +338,7 @@ With these steps, you’ve built a **Power BI** report that spotlights **loans**
 This helps you quickly identify red flags in your fictional dataset. 
 ---
 
-### Build a report to discover Suspicious Partially Approved Loans with Missing Data and Low Credit Scores
+## 🚀 Build a report to discover Suspicious Partially Approved Loans with Missing Data and Low Credit Scores
 
 ## 1. Open Your Dataset and Start a New Report
 
