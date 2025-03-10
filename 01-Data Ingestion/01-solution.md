@@ -1,0 +1,199 @@
+# 📖 Solution to Challenge 1: Setting Up Fabric & Storage Solutions.
+
+## 🔹 Objective  
+In this challenge, you will:  
+
+✅ Set up Microsoft Fabric Capacity  
+✅ Create a OneLake Lakehouse to store transaction PDFs  
+✅ Upload the PDFs to OneLake  
+✅ Create & Configure a Service Principal for authentication  
+✅ Assign permissions in Fabric & Azure Blob Storage  
+
+---
+
+## 🚀 Step 1: Create Microsoft Fabric Capacity  
+
+### 1️⃣ Create Fabric Capacity in Azure  
+
+1. Go to **Azure Portal** → Microsoft Azure  
+2. Search for **Microsoft Fabric** → Select **Fabric Capacity**  
+3. Click **Create**  
+4. Fill in the details:  
+   - **Resource Group**: `YourUniqueResourceGroup`  
+   - **Capacity Name**: `YourFabricCapacity`  
+   - **SKU**: `F2` (minimum recommended)  
+   - **Region**: Closest to your location  
+   - **Security**: Enable **Private Link** (optional but recommended)  
+5. Click **Review + Create**  
+6. Wait for the deployment to complete.  
+
+✅ **Best Practice**: Assign **Role-Based Access Control (RBAC)** to control access to the capacity.  
+
+---
+
+## 🚀 Step 2: Assign Fabric Capacity in Microsoft Fabric  
+
+### 1️⃣ Assign Fabric Capacity to Your Workspace  
+
+1. Go to **Microsoft Fabric**  
+2. Click **Admin Settings** (⚙️ gear icon) → **Fabric Capacity**  
+3. Click **Assign Capacity**  
+4. Select the Fabric Capacity you created (`YourFabricCapacity`)  
+5. Click **Save**  
+
+✅ **Outcome**: Your Fabric workspace is now connected to Microsoft Fabric Capacity.  
+
+---
+
+## 🚀 Step 3: Create a OneLake Lakehouse  
+
+### 1️⃣ Create a new Fabric Workspace
+
+1. In **Microsoft Fabric**, go to your **Workspaces**  
+2. Click **+ New** → Select **Lakehouse**  
+3. Fill in the details:  
+   - **Name**: `YourLakehouse`  
+   - **Description**: Storage for transaction receipts  
+   - **Security**: Assign **Admin & Reader** permissions  
+4. Click **Create**  
+
+✅ **Best Practice**: Keep a **structured folder hierarchy** in OneLake for organized data.  
+
+---
+
+## 🚀 Step 4: Upload the PDFs to OneLake  
+
+### 1️⃣ Upload PDF Files  
+
+1. Open **Fabric** → Go to **YourLakehouse**  
+2. Click on **Files** (Inside Lakehouse)  
+3. Click **Upload Files** → Select multiple receipt PDFs from your local computer  
+
+✅ **Best Practice**: Upload sample files with a consistent naming format, e.g.:  
+Receipt_Store123_2024-01-15.pdf
+Invoice_Customer456_2024-02-01.pdf
+
+
+---
+
+## 🚀 Step 5: Create a Storage Account  
+
+### 1️⃣ Create an Azure Storage Account  
+
+1. Go to **Azure Portal** → Search for **Storage Accounts**  
+2. Click **+ Create**  
+3. Fill in the details:  
+   - **Resource Group**: `YourUniqueResourceGroup`  
+   - **Storage Account Name**: `yourstorageaccount`  
+   - **Region**: Same as Fabric  
+   - **Performance**: **Standard**  
+   - **Replication**: **Locally Redundant Storage (LRS)**  
+4. Click **Review + Create** → Click **Create**  
+
+---
+
+## 🚀 Step 6: Create an Standard LRS Storage Account
+
+💡 **Why?** This separate **Storage Account** account will be used to store structured data outputs.  
+
+### 1️⃣ Create an Storage Account
+
+1. Open **Azure Portal** → Search for **Storage Accounts**  
+2. Click **+ Create**  
+3. Fill in the details:  
+   - **Resource Group**: `YourUniqueResourceGroup`  
+   - **Storage Account Name**: `yourstorageaccount`  
+   - **Region**: Same as Fabric  
+   - **Performance**: **Standard LRS**  
+   - **Replication**: **Locally Redundant Storage (LRS)**  
+4. Click **Review + Create** → Click **Create**  
+
+### 2️⃣ Create a Contianer with a folder inside
+
+1. Navigate to your Storage Account 
+2. Click **Data Storage** → Select **Containers**  
+3. Click **+ Add** → Name the container: `container`  
+4. Click **Create** 
+5. **Add a folder for storing the analyzed JSON data**
+
+---
+
+## 🚀 Step 7: Create an Azure Document Intelligence Instance
+
+💡 **Why?** **Azure Document Intelligence (Form Recognizer)** is required for **AI-powered document processing**.
+
+### 1️⃣ Create a Document Intelligence Instance
+1. **Go to** [Azure Portal](https://portal.azure.com) → Search for **Document Intelligence**  
+2. Click **+ Create**  
+3. Fill in the details:
+   - **Resource Group:** `YourUniqueResourceGroup`
+   - **Name:** `YourDocumentIntelligenceInstance`
+   - **Region:** Same as Fabric  
+   - **Pricing Tier:** `S0` *(Standard - recommended)*
+4. Click **Review + Create** → Click **Create**  
+5. Wait for the deployment to complete.  
+
+### 2️⃣ Retrieve API Key & Endpoint
+1. **Go to** the **Document Intelligence Resource**  
+2. Navigate to **Keys and Endpoints**  
+3. **Copy & Save** the following:
+   - **Endpoint URL**
+   - **Primary Key**
+   
+✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.
+
+---
+
+## 🚀 Step 8: Create & Configure a Service Principal  
+
+### 1️⃣ Create a Service Principal in Azure Entra ID  
+
+1. Go to **Azure Entra ID (Active Directory)**  
+2. Click **App Registrations** → **+ New Registration**  
+3. Fill in:  
+   - **Name**: `YourServicePrincipal`  
+   - **Supported Account Type**: **Single Tenant**  
+4. Click **Register**  
+5. Copy the following details:  
+   - **Application (Client) ID**  
+   - **Tenant ID**  
+
+---
+
+## 🚀 Step 9: Generate & Store Service Principal Credentials  
+
+### 1️⃣ Create Client Secret  
+
+1. Go to **Azure Entra ID** → **App Registrations**  
+2. Select **YourServicePrincipal**  
+3. Go to **Certificates & Secrets** → **+ New Client Secret**  
+4. Set **Expiration**: **1 Month** (or as per security policy)  
+5. Copy & Save the **Secret Value** (*It will not be visible again!*)  
+
+✅ **Outcome**: You now have **Client ID, Tenant ID, and Secret Key** for authentication.  
+
+---
+
+## 🚀 Step 10: Assign Permissions in Fabric & Blob Storage  
+
+### 1️⃣ Enable Service Principal Authentication in Fabric  
+
+1. Go to **Microsoft Fabric** → **Fabric Portal**  
+2. Click **Admin Settings** (⚙️ gear icon)  
+3. Scroll down to **Service Principals can use Fabric APIs**  
+4. Enable this option  
+5. Click **Save**  
+
+✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
+
+### 2️⃣ Assign Permissions in Storage Account  
+
+1. Go to your **Storage Account** → Click **Access Control (IAM)**  
+2. Click **Add Role Assignment**  
+3. Assign the following roles to **YourServicePrincipal**:  
+   ✅ **Storage Blob Data Contributor**  
+   ✅ **Storage Account Contributor**  
+   ✅ **Cognitive Services Contributor** (*For Document Intelligence*)  
+4. Click **Save**  
+
+✅ **Outcome**: The **Service Principal has full access** to Fabric & Blob Storage.  
