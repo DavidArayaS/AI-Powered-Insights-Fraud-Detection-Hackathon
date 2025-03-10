@@ -13,7 +13,7 @@ In this challenge, you will:
 
 ## 🚀 Step 1: Create Microsoft Fabric Capacity  
 
-### 1️⃣ Create Fabric Capacity in Azure, (skip if you already provisioned your Fabric Capacity or if you are using a free trial)
+### 1️⃣ Create Fabric Capacity in Azure (skip if you already provisioned your Fabric Capacity or if you are using a free trial)
 
 1. Go to **Azure Portal** → Microsoft Azure  
 2. Search for **Microsoft Fabric** → Select **Fabric Capacity**  
@@ -31,7 +31,7 @@ In this challenge, you will:
 
 ---
 
-## 🚀 Step 2: Assign Fabric Capacity in Microsoft Fabric, (skip if you already provisioned your Fabric Capacity or if you are using a free trial)  
+## 🚀 Step 2: Assign Fabric Capacity in Microsoft Fabric (skip if you already provisioned your Fabric Capacity or if you are using a free trial)  
 
 ### 1️⃣ Assign Fabric Capacity to Your Workspace  
 
@@ -52,17 +52,15 @@ In this challenge, you will:
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B57FFD2F6-A926-4079-A0A7-8CE696F2B0E5%7D.png)
 
 1. In **Microsoft Fabric**, go to your **Workspace**  
-2. Click **+ New iteam** → Select **Lakehouse**  
+2. Click **+ New item** → Select **Lakehouse**  
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B55843AA2-7852-48F4-9FF3-7A32BD832729%7D.png)
 
 3. Fill in the details:  
    - **Name**: `YourLakehouse`  
-   - **Description**: Storage for Financial PDF  
-   - Click **Create** 
+   - **Description**: Storage for Financial PDFs  
+   - Click **Create**  
    - **Security**: Assign **Admin & Reader** permissions  
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7BC5EFBEC0-2062-44B2-A20B-6529B1F3391F%7D.png)
 
 ✅ **Best Practice**: Keep a **structured folder hierarchy** in OneLake for organized data.  
 
@@ -77,9 +75,8 @@ In this challenge, you will:
 3. Click **Upload Files** → Select multiple receipt PDFs from your local computer  
 
 ✅ **Best Practice**: Upload sample files with a consistent naming format, e.g.:  
-Investemts_2024-01-15.pdf
-Loan_456_2024-02-01.pdf
-
+   - `Investments_2024-01-15.pdf`  
+   - `Loan_456_2024-02-01.pdf`  
 
 ---
 
@@ -99,11 +96,11 @@ Loan_456_2024-02-01.pdf
 
 ---
 
-## 🚀 Step 6: Create an Standard LRS Storage Account
+## 🚀 Step 6: Create a Standard LRS Storage Account  
 
-💡 **Why?** This separate **Storage Account** account will be used to store structured data outputs.  
+💡 **Why?** This separate **Storage Account** will be used to store structured data outputs.  
 
-### 1️⃣ Create an Storage Account
+### 1️⃣ Create a Storage Account  
 
 1. Open **Azure Portal** → Search for **Storage Accounts**  
 2. Click **+ Create**  
@@ -115,52 +112,45 @@ Loan_456_2024-02-01.pdf
    - **Replication**: **Locally Redundant Storage (LRS)**  
 4. Click **Review + Create** → Click **Create**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B1A460581-E53C-44F8-AC14-7007541998D7%7D.png)
+### 2️⃣ Create a Container with a Folder Inside  
 
-
-### 2️⃣ Create a Contianer with a folder inside
-
-1. Navigate to your Storage Account 
+1. Navigate to your Storage Account  
 2. Click **Data Storage** → Select **Containers**  
 3. Click **+ Add** → Name the container: `container`  
-4. Click **Create** 
-5. **Add a folder for storing the analyzed JSON data**
+4. Click **Create**  
+5. **Add a folder for storing the analyzed JSON data**  
 
 ---
 
-## 🚀 Step 7: Create an Azure Document Intelligence Instance
+## 🚀 Step 7: Create an Azure Document Intelligence Instance  
 
-💡 **Why?** **Azure Document Intelligence (Form Recognizer)** is required for **AI-powered document processing**.
+💡 **Why?** **Azure Document Intelligence (Form Recognizer)** is required for **AI-powered document processing**.  
 
-### 1️⃣ Create a Document Intelligence Instance
+### 1️⃣ Create a Document Intelligence Instance  
+
 1. **Go to** [Azure Portal](https://portal.azure.com) → Search for **Document Intelligence**  
 2. Click **+ Create**  
-3. Fill in the details:
-   - **Resource Group:** `YourUniqueResourceGroup`
-   - **Name:** `YourDocumentIntelligenceInstance`
+3. Fill in the details:  
+   - **Resource Group:** `YourUniqueResourceGroup`  
+   - **Name:** `YourDocumentIntelligenceInstance`  
    - **Region:** Same as Fabric  
-   - **Pricing Tier:** `S0` *(Standard - recommended)*
+   - **Pricing Tier:** `S0` *(Standard - recommended)*  
 4. Click **Review + Create** → Click **Create**  
 5. Wait for the deployment to complete.  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7BACFC5581-1592-4DC4-B15C-D956FE413806%7D.png)
+### 2️⃣ Retrieve API Key & Endpoint  
 
-
-### 2️⃣ Retrieve API Key & Endpoint
 1. **Go to** the **Document Intelligence Resource**  
 2. Navigate to **Keys and Endpoints**  
-3. **Copy & Save** the following:
-   - **Endpoint URL**
-   - **Primary Key**
-   
-✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.
+3. **Copy & Save** the following:  
+   - **Endpoint URL**  
+   - **Primary Key**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B46683D1A-6C6F-420A-91D8-E67C8E189943%7D.png)
-
+✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.  
 
 ---
 
-## 🚀 Step 8: Create & Configure a Service Principal, (skip this step if the Service Principal was created as suggested in the prerequites email)  
+## 🚀 Step 8: Create & Configure a Service Principal (skip this step if the Service Principal was created as suggested in the prerequisites email)  
 
 ### 1️⃣ Create a Service Principal in Azure Entra ID  
 
@@ -174,11 +164,9 @@ Loan_456_2024-02-01.pdf
    - **Application (Client) ID**  
    - **Tenant ID**  
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B8AD3242B-3FA3-4F32-B5BA-7173B8949235%7D.png)
-
 ---
 
-## 🚀 Step 9: Generate & Store Service Principal Credentials, (skip this step if the Service Principal was created as suggested in the prerequites email) 
+## 🚀 Step 9: Generate & Store Service Principal Credentials (skip this step if the Service Principal was created as suggested in the prerequisites email)  
 
 ### 1️⃣ Create Client Secret  
 
@@ -197,12 +185,9 @@ Loan_456_2024-02-01.pdf
 ### 1️⃣ Enable Service Principal Authentication in Fabric  
 
 1. Go to **Microsoft Fabric** → **Fabric Portal**  
-2. Click **Admin Settings** (⚙️ gear icon) and go to **Admin Portal** 
-3. Scroll down to **Service Principals can use Fabric APIs**  
-4. Enable this option  
-5. Click **Save**  
-
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B1AD1C029-521C-48F6-A28F-28052A6C6627%7D.png)
+2. Click **Admin Settings** (⚙️ gear icon) → **Admin Portal**  
+3. Enable **Service Principals can use Fabric APIs**  
+4. Click **Save**  
 
 ✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
 
@@ -213,7 +198,7 @@ Loan_456_2024-02-01.pdf
 3. Assign the following roles to **YourServicePrincipal**:  
    ✅ **Storage Blob Data Contributor**  
    ✅ **Storage Account Contributor**  
-   ✅ **Cognitive Services Contributor** (*For Document Intelligence*)  
+   ✅ **Cognitive Services Contributor** *(For Document Intelligence)*  
 4. Click **Save**  
 
 ✅ **Outcome**: The **Service Principal has full access** to Fabric & Blob Storage.  
