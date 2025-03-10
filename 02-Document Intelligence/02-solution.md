@@ -93,73 +93,7 @@ In this challenge, you will:
 
 If you want a faster approach, paste the following JSON into the **Logic App Code Editor** (modify as needed):  
 
-```json
-{
-    "definition": {
-        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-        "contentVersion": "1.0.0.0",
-        "triggers": {
-            "When_a_blob_is_added_or_modified_(properties_only)_(V2)": {
-                "recurrence": {
-                    "interval": 1,
-                    "frequency": "Minute",
-                    "timeZone": "[INSERT_TIMEZONE_HERE]"
-                },
-                "splitOn": "@triggerBody()",
-                "type": "ApiConnection",
-                "inputs": {
-                    "host": {
-                        "connection": {
-                            "name": "@parameters('$connections')['azureblob']['connectionId']"
-                        }
-                    },
-                    "method": "get",
-                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('[INSERT_STORAGE_NAME_HERE]'))}/triggers/batch/onupdatedfile",
-                    "queries": {
-                        "folderId": "[INSERT_FOLDER_ID_HERE]",
-                        "maxFileCount": 10
-                    }
-                },
-                "conditions": [
-                    {
-                        "expression": "@endsWith(triggerOutputs()?['body']['name'], '.pdf')"
-                    }
-                ]
-            }
-        },
-        "actions": {
-            "Analyze_Document_for_Prebuilt_or_Custom_models_(v4.x_API)": {
-                "runAfter": {},
-                "type": "ApiConnection",
-                "inputs": {
-                    "host": {
-                        "connection": {
-                            "name": "@parameters('$connections')['formrecognizer']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "body": "{\"urlSource\":\"https://[INSERT_STORAGE_ACCOUNT_HERE].blob.core.windows.net/[INSERT_CONTAINER_NAME_HERE]/@{triggerOutputs()?['body']['name']}\"}",
-                    "headers": {
-                        "Content-Type": "application/json"
-                    },
-                    "path": "/documentModels/prebuilt-invoice:analyze",
-                    "queries": {
-                        "api-version": "2023-07-31"
-                    }
-                }
-            }
-        },
-        "outputs": {},
-        "parameters": {
-            "$connections": {
-                "type": "Object",
-                "defaultValue": {}
-            }
-        }
-    }
-}
-```
-
+[LogicApp.json]()
 
 ✅ Outcome: The Logic App will process PDFs and save JSONs without using the Designer.
 
