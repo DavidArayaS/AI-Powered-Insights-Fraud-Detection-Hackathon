@@ -439,8 +439,9 @@ Your table now displays **only suspicious loan records** characterized by:
 
 ***Get deeper insights of your data with Copilot!
 
-![alt text]()
-![alt text]()
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/5647d69aef706b409068bace5cc88b58310f1a39/03-Fraud%20Analysis/Reference%20Pictures/%7B48D6AC86-184B-4356-B7A1-6EE4B814C34C%7D.png)
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/5647d69aef706b409068bace5cc88b58310f1a39/03-Fraud%20Analysis/Reference%20Pictures/%7BD15A33FC-D6FB-4849-ACD7-B8169D3D93BE%7D.png)
 
 
 ---
