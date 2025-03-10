@@ -1,9 +1,9 @@
 # 🏆 Challenge 5: Building a Power BI Report from Financial Data in Microsoft Fabric  
 
 ## 📖 Scenario  
-Contoso, a global financial firm, is looking to **automate the analysis of investment portfolios**. They have **unstructured JSON data** stored in **Microsoft Fabric Lakehouse** and want to transform this into a **Power BI report** that provides real-time insights.  
+You are tasked with **automating the analysis of investment portfolios**. The financial data is stored in **Microsoft Fabric Lakehouse** in an **unstructured JSON format**, and your goal is to transform it into a **Power BI report** that provides real-time insights.  
 
-Your task is to **process, structure, and visualize financial data** using Fabric and Power BI.  
+Your mission is to **process, structure, and visualize financial data** using Fabric and Power BI.  
 
 ---
 
@@ -13,10 +13,8 @@ By completing this challenge, you will:
 ✅ Process **JSON investment data** from **Fabric Lakehouse**  
 ✅ Use **PySpark in a Fabric Notebook** to structure the data  
 ✅ Create a **Semantic Model** for Power BI integration  
-✅ Automatically generate a **Power BI report**  
+✅ Generate a **Power BI reports**  
 ✅ Ensure the report is **shareable and refreshable**  
-
-> **Note:** The goal is to **connect data from Fabric to Power BI** while ensuring **automated updates** and **real-time insights**.  
 
 ---
 
@@ -39,14 +37,20 @@ By completing this challenge, you will:
 🔹 Open a new **PySpark Notebook** in Fabric.  
 
 🔹 **What transformations are needed to extract meaningful financial insights?**  
+   - You can use the [FactFinancialTable.py Notebook](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/c3af96e9085107104005d86344f07a6f4a7c6e7b/03-Fraud%20Analysis/FactFinancialTable.py) to guide your data transformations.
 
 ✅ **Outcome**: A **structured Delta table** is created in Fabric Lakehouse.  
 
 ---
-## 🚀 Step 3: Create the Lookup or Dimension Tables
 
-1. Use the Excel files provided with your PDF datasource
----
+## 🚀 Step 3: Create the Lookup or Dimension Tables  
+
+1. Use the Excel files provided with your **PDF Data Source**: [Financial Data.zip](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/05f385b28e7d4215b0e1bf52eeaabf63b70e7c1a/Data%20Sources/Financial%20Data.zip)
+2. Open your Lakehouse  
+3. Click **Get data**  
+4. Select **New Dataflow Gen2**  
+5. Select the **Enter Data** option  
+6. Create a table for each of the Excel files using their content  
 
 ---
 
@@ -100,3 +104,7 @@ Once all steps are completed, you have **successfully built a real-time financia
 🔹 If **Power BI does not show data**, check that the **Semantic Model includes the correct table**.  
 🔹 If the **report does not update**, verify that **Direct Query Mode** is enabled.  
 🔹 If the **Notebook fails**, confirm the **JSON file format** and **data transformations**.  
+
+
+
+
