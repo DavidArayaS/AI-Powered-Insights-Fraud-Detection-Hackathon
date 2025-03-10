@@ -13,7 +13,7 @@ In this challenge, you will:
 
 ## 🚀 Step 1: Create Microsoft Fabric Capacity  
 
-### 1️⃣ Create Fabric Capacity in Azure  
+### 1️⃣ Create Fabric Capacity in Azure, (skip if you already provisioned your Fabric Capacity or if you are using a free trial)
 
 1. Go to **Azure Portal** → Microsoft Azure  
 2. Search for **Microsoft Fabric** → Select **Fabric Capacity**  
@@ -31,7 +31,7 @@ In this challenge, you will:
 
 ---
 
-## 🚀 Step 2: Assign Fabric Capacity in Microsoft Fabric  
+## 🚀 Step 2: Assign Fabric Capacity in Microsoft Fabric, (skip if you already provisioned your Fabric Capacity or if you are using a free trial)  
 
 ### 1️⃣ Assign Fabric Capacity to Your Workspace  
 
@@ -49,13 +49,20 @@ In this challenge, you will:
 
 ### 1️⃣ Create a new Fabric Workspace
 
-1. In **Microsoft Fabric**, go to your **Workspaces**  
-2. Click **+ New** → Select **Lakehouse**  
+![alt text](createfabricpic)
+
+1. In **Microsoft Fabric**, go to your **Workspace**  
+2. Click **+ New iteam** → Select **Lakehouse**  
+
+![alt text](Lakehouse)
+
 3. Fill in the details:  
    - **Name**: `YourLakehouse`  
-   - **Description**: Storage for transaction receipts  
+   - **Description**: Storage for Financial PDF  
+   - Click **Create** 
    - **Security**: Assign **Admin & Reader** permissions  
-4. Click **Create**  
+
+![alt text](manage data access)
 
 ✅ **Best Practice**: Keep a **structured folder hierarchy** in OneLake for organized data.  
 
@@ -70,8 +77,8 @@ In this challenge, you will:
 3. Click **Upload Files** → Select multiple receipt PDFs from your local computer  
 
 ✅ **Best Practice**: Upload sample files with a consistent naming format, e.g.:  
-Receipt_Store123_2024-01-15.pdf
-Invoice_Customer456_2024-02-01.pdf
+Investemts_2024-01-15.pdf
+Loan_456_2024-02-01.pdf
 
 
 ---
@@ -108,6 +115,9 @@ Invoice_Customer456_2024-02-01.pdf
    - **Replication**: **Locally Redundant Storage (LRS)**  
 4. Click **Review + Create** → Click **Create**  
 
+![alt text](SA)
+
+
 ### 2️⃣ Create a Contianer with a folder inside
 
 1. Navigate to your Storage Account 
@@ -133,6 +143,9 @@ Invoice_Customer456_2024-02-01.pdf
 4. Click **Review + Create** → Click **Create**  
 5. Wait for the deployment to complete.  
 
+![alt text](doc intell)
+
+
 ### 2️⃣ Retrieve API Key & Endpoint
 1. **Go to** the **Document Intelligence Resource**  
 2. Navigate to **Keys and Endpoints**  
@@ -142,9 +155,12 @@ Invoice_Customer456_2024-02-01.pdf
    
 ✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.
 
+![alt text](keys di)
+
+
 ---
 
-## 🚀 Step 8: Create & Configure a Service Principal  
+## 🚀 Step 8: Create & Configure a Service Principal, (skip this step if the Service Principal was created as suggested in the prerequites email)  
 
 ### 1️⃣ Create a Service Principal in Azure Entra ID  
 
@@ -158,9 +174,11 @@ Invoice_Customer456_2024-02-01.pdf
    - **Application (Client) ID**  
    - **Tenant ID**  
 
+![alt text](SP)
+
 ---
 
-## 🚀 Step 9: Generate & Store Service Principal Credentials  
+## 🚀 Step 9: Generate & Store Service Principal Credentials, (skip this step if the Service Principal was created as suggested in the prerequites email) 
 
 ### 1️⃣ Create Client Secret  
 
@@ -179,10 +197,12 @@ Invoice_Customer456_2024-02-01.pdf
 ### 1️⃣ Enable Service Principal Authentication in Fabric  
 
 1. Go to **Microsoft Fabric** → **Fabric Portal**  
-2. Click **Admin Settings** (⚙️ gear icon)  
+2. Click **Admin Settings** (⚙️ gear icon) and go to **Admin Portal** 
 3. Scroll down to **Service Principals can use Fabric APIs**  
 4. Enable this option  
 5. Click **Save**  
+
+![alt text](fabric sp)
 
 ✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
 
