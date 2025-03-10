@@ -99,7 +99,7 @@ Create One to One relationships between your Factual and Dim Tables
 
 💡 **Why?** Power BI can now connect directly to your **semantic model**.  
 
-### 1️⃣ Click the ***Create New Power BI option**
+### 1️⃣ Click the ***Create New Power BI option to Build any of the following reports**
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7BFC9D1153-380A-4BD2-BAF6-0CEA6B30235F%7D.png)
 
@@ -327,7 +327,128 @@ With these steps, you’ve built a **Power BI** report that spotlights **loans**
 This helps you quickly identify red flags in your fictional dataset. 
 ---
 
+### Build a report to discover Suspicious Partially Approved Loans with Missing Data and Low Credit Scores
 
+## 1. Open Your Dataset and Start a New Report
+
+1. Go to your **Fabric Workspace**.  
+2. Locate your **Dataset** (semantic model) with financial data.  
+3. Click **Create report** (or “New report”) from that dataset.  
+4. You’ll see a **blank canvas** with the **Data** pane on the right (listing your tables/fields).
+
+---
+
+## 2. Filter to Only Loan Documents
+
+1. On the **right side**, in the **Data** pane, expand your **FactFinancialTable**.  
+2. Locate the **DocumentType** field.  
+3. **Drag** `DocumentType` into the **Filters** pane (on the right).  
+   - Choose **Basic filtering**.  
+4. Select **"Loan"** to include only rows with `DocumentType = "Loan"`.  
+5. Now, all visuals on this page will only show loan documents.
+
+---
+
+## 3. Create a Table Visual
+
+1. In the **Visualizations** pane (right side), click the **Table** icon (the small grid).  
+2. A **blank Table** visual appears on the canvas.  
+3. **Select** that Table visual so it’s highlighted.
+
+---
+
+## 4. Add Fields to the Table
+
+1. In the **Data** pane, expand your tables, and drag these fields into the **Values** area of the Table visual:
+   - `ApplicantID`
+   - `ApplicantName`
+   - `ProofOfIdentityProvided`
+   - `ApprovalStatus`
+   - `CreditScore`
+   - `Street` *(from DimAddress)*
+   - `State` *(from DimAddress)*
+   - `City` *(optional)*
+
+2. The table now displays each loan document with these columns.
+
+---
+
+## 4. Filter for "Partially Approved" Loans
+
+1. In the **Filters** pane under “Filters on this visual,” **drag** `ApprovalStatus`.
+2. Choose **Basic filtering**.
+3. Select **"Partially Approved"**.
+4. Now the table displays only partially approved loans.
+
+---
+
+## 5. Filter for Very Low Credit Scores (below 500)
+
+1. Drag `CreditScore` into **Filters on this visual**.
+2. Select **Advanced filtering**.
+3. Set filter to **“is less than” 500**.
+4. Click **Apply**.
+
+---
+
+## 6. Filter for Missing Proof of Identity
+
+1. Drag `ProofOfIdentityProvided` into **Filters on this visual**.
+2. Set to **Basic filtering**.
+3. Select **"No"** only.
+4. This filters for loans without identity proof.
+
+---
+
+## 6. Filter for Missing Address Information
+
+1. Drag `Street` into **Filters on this visual**:
+   - Select **Advanced filtering → "is blank"**.
+2. Drag `State` into **Filters on this visual**:
+   - Select **Advanced filtering → "is blank"**.
+3. Use the logical **"Or"** operator between these conditions.
+4. Now, the table highlights entries missing critical address details.
+
+---
+
+## 7. Review the Results
+
+Your table now displays **only suspicious loan records** characterized by:
+
+- **Partial Approval**
+- **CreditScore below 500**
+- **No Proof of Identity**
+- **Incomplete address information (Street or State missing)**
+
+---
+
+## 7. (Optional) Additional Slicers
+
+- Add slicers (e.g., from **DimApplicant** or **DimClient**) to further drill into the suspicious loans by applicant employment status or customer type.
+
+---
+
+## 8. Format and Save the Report
+
+1. Click your **Table** visual → go to the **Format** (paint roller) pane.
+2. Adjust visuals for clarity and readability.
+3. Rename this report page to **"Suspicious Partially Approved Loans"**.
+4. Click **Save** (top-right), name your report clearly, and store it in your Fabric workspace.
+
+---
+
+## Conclusion
+
+With these steps, you've created a targeted **Power BI** report in **Fabric** that identifies potentially fraudulent or suspicious loan approvals based on critical red flags.
+
+
+---
+### What other reports can you imagine building?
+
+Lacking ideas? Ask Copilot!
+
+
+![alt text]()
 
 ---
 
