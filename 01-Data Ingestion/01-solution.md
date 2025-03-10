@@ -103,7 +103,7 @@ In this challenge, you will:
 
 ---
 
-## 🚀 Step 6: Create a Standard LRS Storage Account  
+## 🚀 Step 6: Create a second Standard LRS Storage Account  
 
 💡 **Why?** This separate **Storage Account** will be used to store structured data outputs.  
 
