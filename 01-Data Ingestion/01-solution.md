@@ -66,17 +66,24 @@ In this challenge, you will:
 
 ---
 
-## 🚀 Step 4: Upload the PDFs to OneLake  
+## 🚀 Step 4: Download & Upload Financial Data to OneLake  
+💡 **Why?** Your **AI models** need structured **financial PDFs** to analyze.  
 
-### 1️⃣ Upload PDF Files  
+### 1️⃣ Download and Extract the Financial Data  
+🔹 Download the **financial data ZIP file** from the following link:  
+   🔗 [Financial Data.zip](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/05f385b28e7d4215b0e1bf52eeaabf63b70e7c1a/Data%20Sources/Financial%20Data.zip)  
 
-1. Open **Fabric** → Go to **YourLakehouse**  
-2. Click on **Files** (Inside Lakehouse)  
-3. Click **Upload Files** → Select multiple receipt PDFs from your local computer  
+🔹 Extract the **ZIP file** on your local machine.  
+🔹 Locate the extracted **Financial Data** folder containing the transaction PDFs.  
 
-✅ **Best Practice**: Upload sample files with a consistent naming format, e.g.:  
-   - `Investments_2024-01-15.pdf`  
-   - `Loan_456_2024-02-01.pdf`  
+### 2️⃣ Upload Financial Data to OneLake  
+🔹 Open **Microsoft Fabric** → Navigate to **YourLakehouse**.  
+🔹 Click on **Files** (inside the Lakehouse).  
+🔹 Click **Upload Folder** → Select the extracted Folder with the **PDF files**.  
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f6b939b949003bbd1655cd718a81b2852f2d4c51/01-Data%20Ingestion/Reference%20Pictures/%7BB587EEAC-7F75-4991-9FCF-98F72CEF18CF%7D.png)
+
+✅ **Outcome**: Your **financial data** is now **organized and available** in OneLake.  
 
 ---
 
