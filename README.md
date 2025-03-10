@@ -21,14 +21,14 @@ Example:
 
 | 📅 Day   | 🔹 Activity                                                   | 🏁 Type                |
 |:--------:|:-------------------------------------------------------------|:-----------------------|
-| **Day 1** | Ingesting Data into Microsoft Fabric                          | Walkthrough            |
+| **Day 1** | Ingesting Data into Microsoft Fabric                          | Challenge            |
 | **Day 1** | Extracting Key Data from Documents (Document Intelligence)    | Walkthrough            |
-| **Day 1** | AI Fraud Detection with Azure AI Foundry                      | Walkthrough            |
-| **Day 1** | Fraud Detection Model Optimization Challenge                  | Challenge              |
-| **Day 2** | Data Analytics in Microsoft Fabric (Power BI Dashboards)      | Walkthrough            |
+| **Day 1** | Data Analytics in Microsoft Fabric (Power BI Dashboards)      | Walkthrough            |
 | **Day 2** | Deploying an Insights Chatbot (Azure OpenAI)                  | Walkthrough            |
 | **Day 2** | Chatbot Optimization Challenge                                | Challenge              |
-| **Day 2** | Security & Compliance (Defender for Cloud)                    | Walkthrough & Challenge|
+| **Day 2** | Fraud Detection with Azure AI Foundry                         | Walkthrough            |
+| **Day 2** | Fraud Detection Model Optimization Challenge                  | Challenge              |
+| **Day 2** | Security & Compliance (Defender for Cloud)                    | Challenge              |
 | **Day 2** | Final Presentations & Discussions                             | Collaboration          |
 
 📌 **Mode:** Virtual or In-person  
