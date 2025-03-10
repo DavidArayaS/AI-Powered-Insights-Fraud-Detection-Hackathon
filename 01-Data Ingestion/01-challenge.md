@@ -148,7 +148,7 @@ By completing this challenge, you will:
 ✅ Is **Fabric Capacity** assigned correctly? *(Skip if already done in prerequisites)*  
 ✅ Do all **financial PDFs** appear in **OneLake** under **/Files/FinancialData/**?  
 ✅ Do both **Storage Accounts** and the **Document Intelligence Service** exist and are they ready for use?  
-✅ Is your **Service Principal configured** with the necessary **permissions**? *(Skip if already done in prerequisites)*  
+✅ Is your **Service Principal configured** with the necessary **permissions**?
 
 Once all steps are completed, you are ready to move on to **Challenge 2! 🚀**  
 
