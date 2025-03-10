@@ -58,7 +58,7 @@ This guide will walk you through the entire process of extracting, transforming,
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/73581913b9b0deb877f6802519195eb50ee19283/03-Fraud%20Analysis/Reference%20Pictures/%7BBC3303EC-5A33-4CB0-9BBC-BE9836A7DD67%7D.png)
 
-7. **Publish** the tables, they should not be under Tables/ in your Lakehouse
+7. **Publish** the tables, they should now be under Tables/ in your Lakehouse
 
 ---
 
