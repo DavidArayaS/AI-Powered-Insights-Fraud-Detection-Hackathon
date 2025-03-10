@@ -85,6 +85,8 @@ In this challenge, you will:
     ```  
 - Click **Save**  
 
+![alt text](logic app designer)
+
 ✅ **Outcome**: The Logic App automatically analyzes PDFs and saves JSON outputs in Storage Account.  
 
 ---
@@ -116,24 +118,34 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 ## 🚀 Step 7: Create the ADF Copy Pipeline  
 
-- Open **Azure Data Factory** → Click **Author & Monitor**  
+- Visit adf.azure.com and connect to your ADF
+- Open **Azure Data Factory** → Click **Home**  
 - Click **+ New Pipeline**  
-- Click **+ Add Activity** → Select **Copy Data**  
+- Click **+ Add Activity** → Select **Copy Data** drag & drop to the designer/
+
+![alt text](new pipeline)
+![alt text](copy)
+
 
 ### 🔹 Configure the Source (Fabric Lakehouse)  
 - Click **Source Tab** → Click **+ New**  
 - Select **Microsoft Fabric Lakehouse Files**  
 - **Linked Service**: Create a new Linked Service if needed  
 - **Authentication**: `Service Principal`  
-- Provide **Tenant ID, Client ID, Client Secret**  
+- Provide **Tenant ID, Client ID, Client Secret of the service principal created for this event! (ensure it has the proper RBAC roles)**  
 - **Select Folder Path**: `/Files/`  
 - Click **Save**  
+
+![alt text](lakehouse)
+![alt text](lakehousse connection)
 
 ### 🔹 Configure the Destination (Azure Blob Storage)  
 - Click **Sink Tab** → Click **+ New**  
 - Select **Azure Blob Storage**  
-- **Container**: `Your Container`  
+- **Container**: `Your Container (used to storing the analyzed JSON)`  
 - Click **Save**  
+
+![alt text](storage account)
 
 ### 🔹 Run the Pipeline  
 - Click **Validate** → Ensure no errors  
