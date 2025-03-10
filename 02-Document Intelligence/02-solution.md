@@ -93,7 +93,7 @@ In this challenge, you will:
 
 If you want a faster approach, paste the following JSON into the **Logic App Code Editor** (modify as needed):  
 
-[LogicApp.json]()
+[LogicApp.json](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/98154b6420b02eed89954fd66f32afa9a3133da2/02-Document%20Intelligence/LogicApp.json)
 
 ✅ Outcome: The Logic App will process PDFs and save JSONs without using the Designer.
 
