@@ -38,7 +38,7 @@ This guide will walk you through the entire process of extracting, transforming,
 
 ### 2️⃣ Copy & Paste the PySpark Code 
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/c3af96e9085107104005d86344f07a6f4a7c6e7b/03-Fraud%20Analysis/FactFinancialTable.py)
+[FactFinancialTable.py](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/c3af96e9085107104005d86344f07a6f4a7c6e7b/03-Fraud%20Analysis/FactFinancialTable.py)
 
 ### 3️⃣ Run the Notebook  
 - Click **Run All** to execute the script  
