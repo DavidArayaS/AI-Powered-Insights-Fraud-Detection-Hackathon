@@ -262,7 +262,7 @@ print("✅ Done! Created 'FactFinancialTable' with numeric columns, renamed fiel
 3. Click **Create**  
 4. Click **Open the Data model** 
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/4edcdee863d34f09bca213b50684ef61998f4447/03-Fraud%20Analysis/Reference%20Pictures/%7BAC6C6FBC-989A-44EC-9FA9-5C1068E674DF%7D.png)
+![alt text] ()
 
 5. Enter **Editing Mode**
 
@@ -276,6 +276,7 @@ Create One to One relationships between your Factual and Dim Tables
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7B774CDA62-1850-4584-9028-787DA2025787%7D%20(1).png)
 
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/4edcdee863d34f09bca213b50684ef61998f4447/03-Fraud%20Analysis/Reference%20Pictures/%7BAC6C6FBC-989A-44EC-9FA9-5C1068E674DF%7D.png)
 ---
 
 ## 🚀 Step 5: Generate a blank Power BI Report to Discover your Data!  
