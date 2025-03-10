@@ -177,7 +177,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 ## 🎯 Step 10: Challenge Time!!  
 
-- **Find a way to get your analyzed JSON data into the new Lakehouse in Microsoft Fabric**  
+- **Find a way to get your analyzed JSON data into the your existing Lakehouse in Microsoft Fabric**  
 
 ### 🔹 Hints:  
 - Logic App  
@@ -186,5 +186,3 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - Manual Upload  
 
 ---
-
-🚀 **Your Challenge 2 guide is now fully polished and typo-free!** Let me know if you need any last tweaks. 😊  
