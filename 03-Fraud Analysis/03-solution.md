@@ -270,11 +270,11 @@ Ensure the Columns with **Whole Numbers** and **Decimal Numbers** are Summarized
 
 **Tables : NumberOfDependents, Zip, ApprovedAmount_Dollar, CreditScore, RequestedAmount_Dollar, Return_Percentage, Value_Dollar and YearsOfBeingCustomer**
 
-![alt text]({811802D3-1B2D-4D09-AFFA-B16E25384C96}.png)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7B811802D3-1B2D-4D09-AFFA-B16E25384C96%7D.png)
 
 Create One to One relationships between your Factual and Dim Tables
 
-![alt text]({774CDA62-1850-4584-9028-787DA2025787}.png)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7B774CDA62-1850-4584-9028-787DA2025787%7D%20(1).png)
 
 ---
 
@@ -284,7 +284,7 @@ Create One to One relationships between your Factual and Dim Tables
 
 ### 1️⃣ Click the ***Create New Power BI option**
 
-![alt text]({FC9D1153-380A-4BD2-BAF6-0CEA6B30235F}.png)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d9955813ef99659c31613a5cd7d2239db597d6a4/03-Fraud%20Analysis/Reference%20Pictures/%7BFC9D1153-380A-4BD2-BAF6-0CEA6B30235F%7D.png)
 
 ### Build a report to discover Low Risk Investments with High Returns (More than 10%)
 
