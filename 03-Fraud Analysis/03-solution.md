@@ -197,6 +197,137 @@ Since `Risk` is **text**, you’ll filter by **exact value** instead of numeric 
 With these steps, you’ve built a **Power BI** report in **Fabric** that focuses on **investments** where **Risk** is “Low” and **Return_Percentage** exceeds 10. This helps detect anomalies or potential fraud in your financial dataset.
 
 ---
+# Building a “Suspicious Loan Approvals” Report in Power BI (Markdown Steps)
+
+Below is a **step-by-step** guide to create a Power BI report in **Microsoft Fabric** that highlights **Loan** documents where:
+
+- **ApprovedAmount_Dollar** > 30,000  
+- **CreditScore** < 650  
+- **ProofOfIdentityProvided** = "No"  
+- **YearsAsCustomer** < 5  
+
+This scenario suggests a suspicious approval for applicants with low credit, short relationship history, and no identity proof.
+
+---
+
+## 1. Open Your Dataset and Start a New Report
+
+1. Go to your **Fabric Workspace**.  
+2. Locate the **Dataset** (semantic model) containing your **FactFinancialTable** and dimensions.  
+3. Click **Create report** (or “New report”) from that dataset.  
+4. You’ll see a **blank canvas** with the **Data** pane on the right (listing your tables/fields).
+
+---
+
+## 2. Create a Page Filter for Loans Only
+
+1. On the **right** side, in the **Data** pane, expand your **FactFinancialTable**.  
+2. Locate **DocumentType**.  
+3. **Drag** `DocumentType` into the **Filters** pane (on the right).  
+   - Under “Filters on this page” (or “Filters on all pages”), choose **Basic filtering**.  
+4. Select **"Loan"** to include only rows with `DocumentType = "Loan"`.  
+5. Now all visuals on this page will only show **loan** documents.
+
+---
+
+## 3. Create a Table Visual
+
+1. In the **Visualizations** pane (right side), click the **Table** icon (the small grid).  
+2. A **blank Table** visual appears on the canvas.  
+3. **Select** that Table visual so it’s highlighted.
+
+---
+
+## 4. Add Fields to the Table
+
+1. In the **Data** pane, expand **FactFinancialTable** (or your table name).  
+2. **Drag** the following fields into the **Values** area of the Table visual:
+   - `ApplicantID` (or `ApplicantName`)  
+   - `CreditScore`  
+   - `ApprovedAmount_Dollar`  
+   - `ProofOfIdentityProvided`  
+   - `YearsAsCustomer` (if it’s in **DimClient** or **DimApplicant**, you can still drag it in if relationships are set up)  
+
+3. The table now shows each **Loan** row with these columns.
+
+---
+
+## 5. Apply Numeric Filters
+
+### 5.1 Filter “ApprovedAmount_Dollar > 30000”
+
+1. In the **Filters** pane, under “Filters on this visual,” **drag** `ApprovedAmount_Dollar` from the Data pane.  
+2. Select **Advanced filtering** (or numeric).  
+3. Set **“is greater than” 30000**.  
+4. Click **Apply** or confirm.
+
+### 5.2 Filter “CreditScore < 650”
+
+1. Also **drag** `CreditScore` into **Filters on this visual**.  
+2. Select **Advanced filtering**.  
+3. Set **“is less than” 650**.  
+4. Click **Apply**.
+
+---
+
+## 6. Apply Categorical Filters
+
+### 6.1 ProofOfIdentityProvided = “No”
+
+1. Still in **Filters on this visual**, **drag** `ProofOfIdentityProvided` from the Data pane.  
+2. Change to **Basic filtering** (if it’s text).  
+3. Check the box for **“No”**.  
+4. The table now only shows rows where identity proof is missing.
+
+### 6.2 YearsAsCustomer < 5
+
+1. **Drag** `YearsAsCustomer` into **Filters on this visual**.  
+2. If it’s numeric, select **Advanced filtering** → “is less than” 5.  
+3. Click **Apply**.
+
+---
+
+## 7. Review the Table Results
+
+- Your table now shows **only** loan rows where:
+  1. **ApprovedAmount_Dollar** > 30,000  
+  2. **CreditScore** < 650  
+  3. **ProofOfIdentityProvided** = “No”  
+  4. **YearsAsCustomer** < 5  
+
+- This combination is highly suspicious: big loans, low credit, short history, and no identity proof.
+
+---
+
+## 8. (Optional) Add Extra Slicers
+
+1. If you want to slice by **DimApplicant** attributes (e.g., `EmployedWith`) or **DimClient** (`ClientStatus`), insert a **Slicer** visual.  
+2. Drag the attribute into the slicer to refine your results further.
+
+---
+
+## 9. Format and Save the Report
+
+1. Click the **Table** visual → open the **Format** (paint roller) in the Visualizations pane to style it.  
+2. Rename this page (bottom tab) to **“Suspicious Loan Approvals”** (or similar).  
+3. Click **Save** (top-right). Name the report.  
+4. It’s now saved to your Fabric workspace for future analysis or sharing.
+
+---
+
+## Conclusion
+
+With these steps, you’ve built a **Power BI** report that spotlights **loans** matching critical fraud indicators:
+
+- **High** Approved Amount  
+- **Low** Credit Score  
+- **No** Identity Proof  
+- **Short** Customer Relationship
+
+This helps you quickly identify red flags in your fictional dataset. 
+---
+
+---
 
 ## 🚀 Step 6: Share & Refresh the Power BI Report  
 
