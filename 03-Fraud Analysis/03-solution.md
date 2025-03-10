@@ -55,7 +55,8 @@ This guide will walk you through the entire process of extracting, transforming,
 4. Select **New Dataflow Gen2**
 5. Select the **Enter Data** Option
 6. Create a table for each of the Excel files using their content
-![alt text]()
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/73581913b9b0deb877f6802519195eb50ee19283/03-Fraud%20Analysis/Reference%20Pictures/%7BBC3303EC-5A33-4CB0-9BBC-BE9836A7DD67%7D.png)
+
 7. **Publish** the tables, they should not be under Tables/ in your Lakehouse
 
 ---
