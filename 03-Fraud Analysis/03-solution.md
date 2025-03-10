@@ -55,6 +55,7 @@ This guide will walk you through the entire process of extracting, transforming,
 4. Select **New Dataflow Gen2**
 5. Select the **Enter Data** Option
 6. Create a table for each of the Excel files using their content
+![alt text]()
 7. **Publish** the tables, they should not be under Tables/ in your Lakehouse
 
 ---
