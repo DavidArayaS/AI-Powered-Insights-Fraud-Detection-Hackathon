@@ -56,7 +56,7 @@ Ensure the following **resource providers** are registered within your Azure sub
 ### 🔹 Service Principal & Authentication  
 Each team must create a **Service Principal (App Registration in Entra ID)** with:  
 
-- ✅ **Client ID & Secret** (expires no earlier than **March 21, 2025**)  
+- ✅ **Client ID & Secret** (expires no earlier than **The Second Day of the Event**)  
 - ✅ **Participants must have their Client ID and Secret available during the hackathon.**  
 
 ---
