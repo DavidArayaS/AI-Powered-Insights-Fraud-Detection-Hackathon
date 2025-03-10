@@ -1,18 +1,10 @@
 # 🏆 Challenge 2: Automating Document Processing with Logic Apps  
 
-## 📖 Scenario  
+## 📖 Objective  
 
-Contoso needs an automated pipeline to process financial PDFs using **Azure AI services**. The goal is to extract structured financial data and save the results in an**Azure Storage Account** for further analysis.  
+In this challenge, you will:  
 
-Your task is to build an **end-to-end AI-powered document processing pipeline** using **Azure Logic Apps, Azure Data Factory (ADF), and Azure Document Intelligence**.  
-
----
-
-## 🎯 Your Mission  
-
-By completing this challenge, you will:  
-
-✅ Set up an **Azure Logic App** to trigger PDF processing automatically  
+✅ Set up an **Azure Logic App** to process PDFs automatically  
 ✅ Enable **Managed Identity** for secure access to resources  
 ✅ Assign **permissions** to the Logic App for storage and AI processing  
 ✅ Use **Document Intelligence (Form Recognizer)** to analyze PDFs  
@@ -90,22 +82,21 @@ By completing this challenge, you will:
 
 ```plaintext
 analyzed-document-@{triggerOutputs()?['body']['name']}.json
-```
 
+```
+---
 ```plaintext
 @body('Analyze_Document_for_Prebuilt_or_Custom_models_(v4.x_API)')
-```
 
-✅ **Outcome**: The Logic App will now process PDFs and save structured data in **Storage Account**.  
+```
+✅ **Outcome**: The Logic App will now process PDFs and save structured data in **Storage Account**.
 
 ---
 
 ## 🚀 Step 5: (Alternative) Configure the Logic App using JSON Code  
-
-**Clue** [LogicApp.json](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/98154b6420b02eed89954fd66f32afa9a3133da2/02-Document%20Intelligence/LogicApp.json)
+🔹 **Clue**: [LogicApp.json](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/98154b6420b02eed89954fd66f32afa9a3133da2/02-Document%20Intelligence/LogicApp.json)  
 
 ✅ **Outcome**: The Logic App is now fully configured without using the Designer.  
-
 
 ---
 
@@ -131,13 +122,13 @@ analyzed-document-@{triggerOutputs()?['body']['name']}.json
 
 🔹 **Source Configuration (Fabric Lakehouse)**  
 ✅ Select **Microsoft Fabric Lakehouse Files**  
-✅ Set up **Linked Service** (Service Principal Authentication)  
+✅ Set up **Linked Service** (Service Principal Authentication) **Service Principal created for this event** 
 ✅ **Configure Folder Path**: `/Files/`  
 
 🔹 **Destination Configuration (Azure Blob Storage)**  
 ✅ Select **Azure Blob Storage**  
 ✅ Set up **Linked Service**  
-✅ **Configure Container**: `incoming-docs`  
+✅ **Configure Container**: `your container`  
 
 🔹 **Run the Pipeline**  
 ✅ Click **Validate** → Ensure no errors  
@@ -152,22 +143,22 @@ analyzed-document-@{triggerOutputs()?['body']['name']}.json
 💡 **Why?** The final output should be **structured JSON files** containing **extracted financial data**.  
 
 ### 1️⃣ Check Processed JSON Files  
-🔹 Open **Azure Portal** → Navigate to **Your Storage Account Account**  
+🔹 Open **Azure Portal** → Navigate to **Your Storage Account**  
 🔹 Locate the **processed-json container**  
 
 🔹 **Are the JSON files present and correctly formatted?**  
 
-✅ **Final Outcome**: AI-processed documents are saved in **Storage Account** for **fraud detection!** 🚀🔥  
+✅ **Final Outcome**: AI-processed documents are saved in **Storage Account** for **further analysis!** 🚀🔥  
 
-## 🚀 Step 9: Create a new Lakehouse and move the JSON data to it from the Azure Storage account.
+---
 
-- Look for a way to get your analyzed JSON data into the new Lakehouse in Microsoft Fabric
+## 🚀 Step 9: Look for a way to get your **analyzed JSON data** into the **Lakehouse in Microsoft Fabric**  
 
 ### 🔹 Hints:  
-- Logic App
-- Fabric Copy Pipeline
-- ADF Pipeline
-- Manual Upload
+- Logic App  
+- Fabric Copy Pipeline  
+- ADF Pipeline  
+- Manual Upload  
 
 ---
 
@@ -194,4 +185,4 @@ Once all steps are completed, you are ready to move on to the next challenge! �
 
 🔹 **If the ADF pipeline does not run**, check:  
    - The **Service Principal authentication** is properly configured  
-   - The **Fabric workspace permissions** allow external access.
+   - The **Fabric workspace permissions** allow external access  
