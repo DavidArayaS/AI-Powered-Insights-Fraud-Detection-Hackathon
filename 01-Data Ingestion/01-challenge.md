@@ -76,7 +76,7 @@ By completing this challenge, you will:
 🔹 Click on **Files** (inside the Lakehouse).  
 🔹 Click **Upload Folder** → Select the extracted Folder with the **PDF files**.  
 
-![alt text](upload folder)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f6b939b949003bbd1655cd718a81b2852f2d4c51/01-Data%20Ingestion/Reference%20Pictures/%7BB587EEAC-7F75-4991-9FCF-98F72CEF18CF%7D.png)
 
 ✅ **Outcome**: Your **financial data** is now **organized and available** in OneLake.  
 
