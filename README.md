@@ -8,6 +8,12 @@ This repository serves as a **comprehensive blueprint** for organizing a **high-
 
 ---
 
+## 🗺️ Solution Architecture
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7a77393255aa2071215c87b331e03830de696dd5/Architecture/Architecture.jpeg)
+
+---
+
 ## 🔥 Hackathon Structure  
 
 **Each section of the Hackathon contains a Challenge or a Solution document to complete it.** Instructors are welcome to arrange the event as they prefer.  
