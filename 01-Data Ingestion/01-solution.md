@@ -49,12 +49,12 @@ In this challenge, you will:
 
 ### 1️⃣ Create a new Fabric Workspace
 
-![alt text](createfabricpic)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B57FFD2F6-A926-4079-A0A7-8CE696F2B0E5%7D.png)
 
 1. In **Microsoft Fabric**, go to your **Workspace**  
 2. Click **+ New iteam** → Select **Lakehouse**  
 
-![alt text](Lakehouse)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B55843AA2-7852-48F4-9FF3-7A32BD832729%7D.png)
 
 3. Fill in the details:  
    - **Name**: `YourLakehouse`  
@@ -62,7 +62,7 @@ In this challenge, you will:
    - Click **Create** 
    - **Security**: Assign **Admin & Reader** permissions  
 
-![alt text](manage data access)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7BC5EFBEC0-2062-44B2-A20B-6529B1F3391F%7D.png)
 
 ✅ **Best Practice**: Keep a **structured folder hierarchy** in OneLake for organized data.  
 
@@ -115,7 +115,7 @@ Loan_456_2024-02-01.pdf
    - **Replication**: **Locally Redundant Storage (LRS)**  
 4. Click **Review + Create** → Click **Create**  
 
-![alt text](SA)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B1A460581-E53C-44F8-AC14-7007541998D7%7D.png)
 
 
 ### 2️⃣ Create a Contianer with a folder inside
@@ -143,7 +143,7 @@ Loan_456_2024-02-01.pdf
 4. Click **Review + Create** → Click **Create**  
 5. Wait for the deployment to complete.  
 
-![alt text](doc intell)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7BACFC5581-1592-4DC4-B15C-D956FE413806%7D.png)
 
 
 ### 2️⃣ Retrieve API Key & Endpoint
@@ -155,7 +155,7 @@ Loan_456_2024-02-01.pdf
    
 ✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.
 
-![alt text](keys di)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B46683D1A-6C6F-420A-91D8-E67C8E189943%7D.png)
 
 
 ---
@@ -174,7 +174,7 @@ Loan_456_2024-02-01.pdf
    - **Application (Client) ID**  
    - **Tenant ID**  
 
-![alt text](SP)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B8AD3242B-3FA3-4F32-B5BA-7173B8949235%7D.png)
 
 ---
 
@@ -202,7 +202,7 @@ Loan_456_2024-02-01.pdf
 4. Enable this option  
 5. Click **Save**  
 
-![alt text](fabric sp)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/cbc097fda45d32090f4d726b4fde8dc7ff3ba5ee/01-Data%20Ingestion/Reference%20Pictures/%7B1AD1C029-521C-48F6-A28F-28052A6C6627%7D.png)
 
 ✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
 
