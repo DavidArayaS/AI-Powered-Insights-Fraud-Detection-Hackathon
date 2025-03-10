@@ -197,7 +197,7 @@ Since `Risk` is **text**, you’ll filter by **exact value** instead of numeric 
 With these steps, you’ve built a **Power BI** report in **Fabric** that focuses on **investments** where **Risk** is “Low” and **Return_Percentage** exceeds 10. This helps detect anomalies or potential fraud in your financial dataset.
 
 ---
-# Building a “Suspicious Loan Approvals” Report in Power BI (Markdown Steps)
+### Building a “Suspicious Loan Approvals” Report in Power BI 
 
 Below is a **step-by-step** guide to create a Power BI report in **Microsoft Fabric** that highlights **Loan** documents where:
 
@@ -326,6 +326,8 @@ With these steps, you’ve built a **Power BI** report that spotlights **loans**
 
 This helps you quickly identify red flags in your fictional dataset. 
 ---
+
+
 
 ---
 
