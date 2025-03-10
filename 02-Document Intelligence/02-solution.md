@@ -85,7 +85,7 @@ In this challenge, you will:
     ```  
 - Click **Save**  
 
-![alt text](logic app designer)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B8A2476E2-66BB-4D02-997C-5B06AD014A6C%7D.png)
 
 ✅ **Outcome**: The Logic App automatically analyzes PDFs and saves JSON outputs in Storage Account.  
 
@@ -123,9 +123,11 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - Click **+ New Pipeline**  
 - Click **+ Add Activity** → Select **Copy Data** drag & drop to the designer/
 
-![alt text](new pipeline)
-![alt text](copy)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B3FF8B364-CF65-4CF6-BC4C-B6D9B7E90FBD%7D.png)
 
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B95E116F7-6BE6-4D4F-AF17-D4827151274A%7D.png)
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/Reference%20Pictures/%7B232AD44C-4DB0-4DB9-8386-140BC0007BD2%7D.png)
 
 ### 🔹 Configure the Source (Fabric Lakehouse)  
 - Click **Source Tab** → Click **+ New**  
@@ -136,8 +138,9 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - **Select Folder Path**: `/Files/`  
 - Click **Save**  
 
-![alt text](lakehouse)
-![alt text](lakehousse connection)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7BB0AA3853-7CA6-4E58-88E8-738BA2DCB7E1%7D.png)
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B195003F0-C484-4AF8-9196-CAE5553E7D40%7D.png)
 
 ### 🔹 Configure the Destination (Azure Blob Storage)  
 - Click **Sink Tab** → Click **+ New**  
@@ -145,7 +148,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - **Container**: `Your Container (used to storing the analyzed JSON)`  
 - Click **Save**  
 
-![alt text](storage account)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B420F3069-08BC-42D3-AC23-8100EA769B71%7D.png)
 
 ### 🔹 Run the Pipeline  
 - Click **Validate** → Ensure no errors  
