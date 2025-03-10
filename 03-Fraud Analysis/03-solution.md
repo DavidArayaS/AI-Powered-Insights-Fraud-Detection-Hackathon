@@ -36,8 +36,9 @@ This guide will walk you through the entire process of extracting, transforming,
 2. Click **+ New** → **Notebook**  
 3. Select **PySpark** as the language  
 
-![alt text](notebook)
-![alt text](py)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/b5cf26084f2a7df335ce0c432371cfbfa0421abb/03-Fraud%20Analysis/Reference%20Pictures/%7BE2B88327-CADC-406A-91D1-7B83CB545751%7D.png)
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f7f822f447deaa803341b3c3d3ebabf6ff02f0cf/03-Fraud%20Analysis/Reference%20Pictures/%7B1333AEA5-3BA2-4D7E-A87E-46ECCFDD3797%7D.png)
 
 ### 2️⃣ Copy & Paste the PySpark Code 
 
@@ -62,7 +63,7 @@ This guide will walk you through the entire process of extracting, transforming,
 5. Select the **Enter Data** Option
 6. Create a table for each of the Excel files using their content
 
-![alt text](dataflow)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f7f822f447deaa803341b3c3d3ebabf6ff02f0cf/03-Fraud%20Analysis/Reference%20Pictures/%7B26DF6A17-F66B-492C-BEE5-07A7769F0101%7D.png)
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/73581913b9b0deb877f6802519195eb50ee19283/03-Fraud%20Analysis/Reference%20Pictures/%7BBC3303EC-5A33-4CB0-9BBC-BE9836A7DD67%7D.png)
 
@@ -79,7 +80,7 @@ This guide will walk you through the entire process of extracting, transforming,
 2. Click open your Lakehouse and **Click → **Semantic Model**  
 3. Name it **Financial-Semantic-Model**  
 
-![alt text](semantic)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/b5cf26084f2a7df335ce0c432371cfbfa0421abb/03-Fraud%20Analysis/Reference%20Pictures/%7B73E204B3-284D-4D78-B3A3-BDCAF807DC68%7D.png)
 
 
 ### 2️⃣ Select Your Financial Tables
