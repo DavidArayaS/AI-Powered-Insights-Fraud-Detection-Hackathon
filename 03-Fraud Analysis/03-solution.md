@@ -262,7 +262,7 @@ print("✅ Done! Created 'FactFinancialTable' with numeric columns, renamed fiel
 3. Click **Create**  
 4. Click **Open the Data model** 
 
-![alt text]({AC6C6FBC-989A-44EC-9FA9-5C1068E674DF}.png)
+![alt text](03-Fraud Analysis/Reference Pictures/{774CDA62-1850-4584-9028-787DA2025787} (1).png) 
 
 5. Enter **Editing Mode**
 
