@@ -1,4 +1,4 @@
-# 🏆 Challenge 5: Building a Power BI Report from Financial Data in Microsoft Fabric  
+# 🏆 Challenge 3: Building a Power BI Report from Financial Data in Microsoft Fabric  
 
 ## 📖 Scenario  
 You are tasked with **automating the analysis of investment portfolios**. The financial data is stored in **Microsoft Fabric Lakehouse** in an **unstructured JSON format**, and your goal is to transform it into a **Power BI report** that provides real-time insights.  
