@@ -140,7 +140,10 @@ By completing this challenge, you will:
 ## 🚀 Step 10: Create a Standard LRS Storage Account  
 💡 **Why?** This **Storage Account** will be used to store **analyzed JSON data**.  
 
+
 ✅ **Outcome**: The **Storage Account** is ready for storing processed data.  
+
+[Supporting Document](https://learn.microsoft.com/en-us/fabric/onelake/onelake-azure-storage-explorer)
 
 ---
 
