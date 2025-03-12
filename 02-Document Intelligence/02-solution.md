@@ -135,7 +135,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 - Select **Microsoft Fabric Lakehouse Files**  
 - **Linked Service**: Create a new Linked Service if needed  
 - **Authentication**: `Service Principal`  
-- Provide **Tenant ID, Client ID, Client Secret** of the **Service Principal created for this event**  
+- Provide **Tenant ID, Client ID, Client Secret** of the **Service Principal**  
 - **Select Folder Path**: `/Files/`  
 - Click **Save**  
 

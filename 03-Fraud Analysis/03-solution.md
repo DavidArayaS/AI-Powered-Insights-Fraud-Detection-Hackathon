@@ -467,7 +467,7 @@ With these steps, you've created a targeted **Power BI** report in **Fabric** th
 ---
 ### What other reports can you imagine building?
 
-Not enough ideas right at this moment? Ask Copilot!
+Lacking ideas? Ask Copilot!
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/72b9f51980e95ad59848faa982257b236cdd22b7/03-Fraud%20Analysis/Reference%20Pictures/%7BE2C915BA-A08A-47D5-AD4A-CE2876CAF8CB%7D.png)
 
