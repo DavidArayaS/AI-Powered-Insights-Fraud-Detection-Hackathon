@@ -1,4 +1,4 @@
-# 📖 Solution to Challenge 5: Creating a Power BI Report from Financial Data in Microsoft Fabric  
+# 📖 Solution to Challenge 3: Creating a Power BI Report from Financial Data in Microsoft Fabric  
 
 ---
 
