@@ -208,6 +208,8 @@ In this challenge, you will:
 
 ✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
 
+[Supporting Document](https://learn.microsoft.com/en-us/fabric/onelake/onelake-azure-storage-explorer)
+
 ### 2️⃣ Assign Permissions in Storage Account  
 
 1. Go to your **Storage Account** → Click **Access Control (IAM)**  
