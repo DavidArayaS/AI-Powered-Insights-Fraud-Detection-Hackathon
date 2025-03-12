@@ -21,7 +21,7 @@ In this challenge, you will:
 4. Fill in the details:  
    - **Resource Group**: `YourUniqueResourceGroup`  
    - **Capacity Name**: `YourFabricCapacity`  
-   - **SKU**: `F2` (minimum recommended)  
+   - **SKU**: `F32` (minimum recommended)  
    - **Region**: Closest to your location  
    - **Security**: Enable **Private Link** (optional but recommended)  
 5. Click **Review + Create**  
@@ -61,6 +61,8 @@ In this challenge, you will:
    - **Description**: Storage for Financial PDFs  
    - Click **Create**  
    - **Security**: Assign **Admin & Reader** permissions  
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7BC5EFBEC0-2062-44B2-A20B-6529B1F3391F%7D.png)
 
 ✅ **Best Practice**: Keep a **structured folder hierarchy** in OneLake for organized data.  
 
@@ -127,6 +129,7 @@ In this challenge, you will:
 4. Click **Create**  
 5. **Add a folder for storing the analyzed JSON data**  
 
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7B1A460581-E53C-44F8-AC14-7007541998D7%7D.png)
 ---
 
 ## 🚀 Step 7: Create an Azure Document Intelligence Instance  
@@ -145,6 +148,8 @@ In this challenge, you will:
 4. Click **Review + Create** → Click **Create**  
 5. Wait for the deployment to complete.  
 
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7BACFC5581-1592-4DC4-B15C-D956FE413806%7D.png)
+
 ### 2️⃣ Retrieve API Key & Endpoint  
 
 1. **Go to** the **Document Intelligence Resource**  
@@ -152,6 +157,8 @@ In this challenge, you will:
 3. **Copy & Save** the following:  
    - **Endpoint URL**  
    - **Primary Key**  
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7B46683D1A-6C6F-420A-91D8-E67C8E189943%7D.png)
 
 ✅ **Outcome:** The **Document Intelligence instance** is ready for AI document processing.  
 
@@ -171,6 +178,7 @@ In this challenge, you will:
    - **Application (Client) ID**  
    - **Tenant ID**  
 
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7B8AD3242B-3FA3-4F32-B5BA-7173B8949235%7D.png)
 ---
 
 ## 🚀 Step 9: Generate & Store Service Principal Credentials (skip this step if the Service Principal was created as suggested in the prerequisites email)  
@@ -195,6 +203,8 @@ In this challenge, you will:
 2. Click **Admin Settings** (⚙️ gear icon) → **Admin Portal**  
 3. Enable **Service Principals can use Fabric APIs**  
 4. Click **Save**  
+
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/f993f70222723952ca52c9eabd3cd87a4d36c294/01-Data%20Ingestion/Reference%20Pictures/%7B1AD1C029-521C-48F6-A28F-28052A6C6627%7D.png)
 
 ✅ **Outcome**: The Service Principal can now access **Fabric APIs**.  
 
