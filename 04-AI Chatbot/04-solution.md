@@ -78,7 +78,7 @@ for file_name in os.listdir(source_folder):
         df.to_csv(csv_file_path, index=False)
 
         print(f"Converted {file_name} to {csv_file_name} and saved to {destination_folder}")
-
+```
 Once the converstion is completed you can use a data factory copy job to copy from fabric to the new storage account (Please follow the steps in challenge 2 to complete this task)
 Or the Alternative option is to manually do it ,for keeping the challenge simple we suggest to follow this alternative solution.
 Get the xls files and save them locally in txt format or csv format and save it inside a subfolder. this folder can be uploaded to the parent container sinde our storage account once the storage account creation steps are completed.
