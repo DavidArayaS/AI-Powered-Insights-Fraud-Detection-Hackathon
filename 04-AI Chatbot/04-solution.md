@@ -6,6 +6,7 @@ In this challenge, you will:
 ✅ Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same.  
 ✅ Add Custom Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding.  
 ✅ Build & Customize – Create, Iterate, and Debug Your Orchestration Flows.
+
 ✅ Learn how to use frameworks to programatically create AI agents and achive tailormade solutions for complex use cases with more flexiblity
 
 ---
