@@ -98,6 +98,8 @@ Restrict data visibility based on user roles & permissions.
 
 Set up alerts for suspicious activities in Microsoft Defender.
 
+[Farbic Security Foundamentals](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/security-fundamentals.md) 
+
 🚀 By implementing these security measures, your Azure & Fabric environments will be resilient, compliant, and well-protected against cyber threats! 🎯 🔒
 
 🔹 Next Steps
