@@ -27,7 +27,7 @@ However, before we further develop on our Dev Environment, we need to understand
 ### Agents orchestration and communication styles
 ----
 
-![Architecture](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/acba652f3b97b9498ae280ea727e1011c5fbacad/05-AI%20Multi%20Agent%20Chatbot/Reference%20Pictures/simple-architecture-diagram.png)
+![Architecture](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/0817d840d6d42479f012a4a9667743931cb4de5f/05-AI%20Multi%20Agent%20Chatbot/Reference%20Pictures/Image3.png)
 
 
 ### Azure Agent Frameworks
@@ -68,7 +68,7 @@ Lets see it in action, we will leverage a sample Github repository that deploys 
  
 ### Sample Solution Accelerator Architecture
 ----
-![Architecture](https://dev.azure.com/CSAopenHack/de4d4fbd-f5a0-4f13-be87-6b33c36e2976/_apis/git/repositories/8dcf8d25-9df9-44ed-a91d-7517f1a490af/items?path=/05-multi-agent-chat/simple-architecture-diagram.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=main&resolveLfs=true&%24format=octetStream&api-version=5.0)
+![Architecture](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/acba652f3b97b9498ae280ea727e1011c5fbacad/05-AI%20Multi%20Agent%20Chatbot/Reference%20Pictures/simple-architecture-diagram.png)
 
 
 ## Learning Objectives 
