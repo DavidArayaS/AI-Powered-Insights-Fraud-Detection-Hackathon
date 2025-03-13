@@ -29,7 +29,7 @@ Example:
 | **Day 2** | Fraud Detection with Azure AI Foundry                         | Walkthrough            |
 | **Day 2** | Fraud Detection Model Optimization Challenge                  | Challenge              |
 | **Day 2** | Security & Compliance (Defender for Cloud)                    | Challenge              |
-| **Day 2** | Final Presentations & Discussions                             | Collaboration          |
+| **Day 2** | Final Presentations & Collaboration                           | Collaboration          |
 
 📌 **Mode:** Virtual or In-person  
 📌 **Duration:** 2 Days  
