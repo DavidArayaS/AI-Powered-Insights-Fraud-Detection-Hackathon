@@ -1,6 +1,16 @@
-This solution is divided into 3 milestones. Some tips will be given before the solution, some during the solutions, and detailed steps on each action.
+# 📖 Solution to Challenge 2: Setting Up LLMs for a Chatbot and the Resources Needed.
 
-## Generic TIPS:
+## 🔹 Objective 
+In this challenge, you will: 
+
+✅ Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same.
+✅ Add Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding.
+✅ Build & Customize - Create, Iterate, and Debug Your Orchestration Flows.
+
+---
+
+## 🚀 Generic TIPS:
+
 - Try to keep all resources and RG in the same Region for ease of understanding and standardization.
 - Most companies have organizational policies on auto-creation of Key Vault & Storage account, so here we will be creating all resources separately and will stitch them together.
 - Add a tag to the Resources and resource group when you create them so that we can identify them later for cost management or other aspects.
@@ -17,29 +27,33 @@ This solution is divided into 3 milestones. Some tips will be given before the s
     - Switzerland
 - Check the TPM quota for your subscription for the LLMs `text-embedding-ada-002` and `gpt-35-turbo-16k`. If you are already familiar with the same, request a quota addition if the current quota is in the 2-digit range (10k-90k)and increase it to what ever is maximum for each model
 
-## Milestone #1: Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same
+---
 
-### 1. Create the Resource Group (RG)
+## 🚀 Milestone #1: Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same
+
+### 1️⃣ Create the Resource Group (RG)
 1. Sign in to the Azure portal.
 2. Select **Resource groups**.
 3. Select **Create**.
 4. Enter the following details:
-     - **Subscription**:
-     - **Resource group**:
-     - **Region**:
+    - **Subscription**:
+    - **Resource group**:
+    - **Region**:
 5. Select **Review + Create**.
 
 <<Insert 1 here>>
 
-### 2. Create/Use the existing Storage account (this will be source of our custom data)
+---
 
-**TIP**:The source of your data can be Fabric or Data Lake Gen2 from the previous challenges ,but that will involve some additional steps to fullfull and it might require some extra efforts to set the sameup .
-Since we are time bound we will just use the Dimension Xls (which will be converted to csv/txt here ) for the purpose of this challenge .If you were able to sucessfully finish the first 3 challanges you already have an 3 Dim xls files with you in fabric lakhouse and can convert the files to CSV (We can use a dataflow to transform and then data copy pipeline to copy from fabric to the new storage account) and upload into the storage account we are going to create below.
+### 2️⃣ Create/Use the existing Storage account (this will be source of our custom data)
+
+**TIP**:The source of your data can be Fabric or Data Lake Gen2 from the previous challenges ,but that will involve some additional steps to fullfull and it might require some extra efforts to set the sameup.
+Since we are time bound we will just use the Dimension Xls (which will be converted to csv/txt here ) for the purpose of this challenge.If you were able to sucessfully finish the first 3 challanges you already have an 3 Dim xls files with you in fabric lakhouse and can convert the files to CSV (We can use a dataflow to transform and then data copy pipeline to copy from fabric to the new storage account) and upload into the storage account we are going to create below.
 
 First use a dataflow Gen2 transofromation the files 
 Second step is to convert the transformed files to csv using below snip in notebook
 
-Sample notebook snip to convert the xls in fabric to csv .
+Sample notebook snip to convert the xls in fabric to csv.
 ```python
 # Import necessary libraries
 import pandas as pd
@@ -64,11 +78,10 @@ for file_name in os.listdir(source_folder):
         df.to_csv(csv_file_path, index=False)
 
         print(f"Converted {file_name} to {csv_file_name} and saved to {destination_folder}")
-```
 
 Once the converstion is completed you can use a data factory copy job to copy from fabric to the new storage account (Please follow the steps in challenge 2 to complete this task)
 Or the Alternative option is to manually do it ,for keeping the challenge simple we suggest to follow this alternative solution.
-Get the xls files and save them locally in txt format or csv format and save it inside a subfolder. this folder can be uploaded to the parent container sinde our storage account once the storage account creation steps are completed .
+Get the xls files and save them locally in txt format or csv format and save it inside a subfolder. this folder can be uploaded to the parent container sinde our storage account once the storage account creation steps are completed.
 
 **Reason to go with manual upload**:Since the excel sheet we have created during the last process might have some different formating it is always better to upload a folder of all the files saved in .txt format and upload directly to the storage account container in-order to save time.
 The reason for not to use xls as source data or for data transformation is since the formatting is key and any change or problems in the file inside any coloums will result in failure of recognizing the file 
@@ -76,14 +89,14 @@ The reason for not to use xls as source data or for data transformation is since
 1. On the **Storage accounts** page, select **Create**.
 2. Fill in the required details.
 3. Enter the following details:
-     - **Subscription**:
-     - **Resource group**:
-     - **Storage account name**:
-     - **Region**:
-     - **Performance**: Select Standard
-     - **Redundancy**: LRS
-     - **Networking**: Enable public access from all networks (this will help avoid isolated environment-specific networking issues)
-     - Keep everything else default.
+    - **Subscription**:
+    - **Resource group**:
+    - **Storage account name**:
+    - **Region**:
+    - **Performance**: Select Standard
+    - **Redundancy**: LRS
+    - **Networking**: Enable public access from all networks (this will help avoid isolated environment-specific networking issues)
+    - Keep everything else default.
 4. Select **Review + Create**.
 5. Click **Create**.  
 
@@ -93,72 +106,82 @@ The reason for not to use xls as source data or for data transformation is since
 
 <<Insert 3 here>>
 
-### 3. Create the Key Vault
+---
+
+### 3️⃣ Create the Key Vault
 1. On the **Key Vault** page, select **Create**.
 2. Fill in the required details.
 3. Enter the following details:
-     - **Subscription**:
-     - **Resource group**:
-     - **Key Vault Name**:
-     - **Region**:
-     - **Pricing tier**: Standard
-     - Keep everything else default.
+    - **Subscription**:
+    - **Resource group**:
+    - **Key Vault Name**:
+    - **Region**:
+    - **Pricing tier**: Standard
+    - Keep everything else default.
 4. Select **Review + Create**.
 5. Click **Create**.
 
 <<Insert kv4 here>>
 
-### 4. Create a Search Service Connection to Index the Sample Product Data
+---
+
+### 4️⃣ Create a Search Service Connection to Index the Sample Product Data
 1. On the home page, select **+ Create a resource** and search for **Azure AI Search**. Then create a new Azure AI Search resource with the following settings:
-     - **Subscription**:
-     - **Resource group**:
-     - **Service name**:
-     - **Location**: Make a random choice from any of the regions mentioned in the Tips.
-     - **Pricing tier**: Standard
-     - **Scale**: Increase the search unit by 4 to improve query performance.
+    - **Subscription**:
+    - **Resource group**:
+    - **Service name**:
+    - **Location**: Make a random choice from any of the regions mentioned in the Tips.
+    - **Pricing tier**: Standard
+    - **Scale**: Increase the search unit by 4 to improve query performance.
 2. Wait for your Azure AI Search resource deployment to be completed.
 
 <<Insert search5 here>>
 
-### 5. Create an Azure AI Service
+---
+
+### 5️⃣ Create an Azure AI Service
 1. On the home page, select **+ Create a resource** and search for **Azure AI Services**. Then create a new Azure AI Service resource with the following settings:
-     - **Subscription**:
-     - **Resource group**:
-     - **Region**: Make a choice from any of the regions mentioned in the Tips.
-     - **Name**:
-     - **Pricing tier**: Standard
-     - **Scale**: Increase the search unit by 4 to improve query performance.
+    - **Subscription**:
+    - **Resource group**:
+    - **Region**: Make a choice from any of the regions mentioned in the Tips.
+    - **Name**:
+    - **Pricing tier**: Standard
+    - **Scale**: Increase the search unit by 4 to improve query performance.
 2. Wait for your Azure AI Service resource deployment to be completed.
 
 <<Insert aiservice6 here>>
 
-**Remarks**: At this point, all the resources needed to build a Hub and Project inside a Hub in AI Foundry are completed .
+**Remarks**: At this point, all the resources needed to build a Hub and Project inside a Hub in AI Foundry are completed.       
 
-### 6. Create a Hub
+---
+
+### 6️⃣ Create a Hub
 1. On the Ai Foundry page in [https://portal.azure.com], select **+ Create** and select **Hub**. Then create a new Hub resource with the following settings:
-     - **Subscription**:
-     - **Resource group**:
-     - **Region**: Make a choice from any of the regions mentioned in the Tips.
-     - **Name**:
-     - **Connect AI Services incl. OpenAI**: Select the AI service we created earlier from the drop-down.
-     - **Storage Tab**: Select the storage account we created earlier.
-     - **Key Vault Tab**: Select the key vault we created earlier.
-     - **Networking**: Keep the default (public).
-     - Rest all keep the default.
-     - Click **Create + Review**, and then **Create**.
+    - **Subscription**:
+    - **Resource group**:
+    - **Region**: Make a choice from any of the regions mentioned in the Tips.
+    - **Name**:
+    - **Connect AI Services incl. OpenAI**: Select the AI service we created earlier from the drop-down.
+    - **Storage Tab**: Select the storage account we created earlier.
+    - **Key Vault Tab**: Select the key vault we created earlier.
+    - **Networking**: Keep the default (public).
+    - Rest all keep the default.
+    - Click **Create + Review**, and then **Create**.
 2. Wait for your Azure AI Hub resource deployment to be completed.
 
 <<Insert hub7 here>>
 
-### 7. Create a Project
+---
+
+### 7️⃣ Create a Project
 1. On the Ai Foundry page in [https://portal.azure.com], select **+ Create** and select **Project**. Then create a new Project resource with the following settings:
-     - **Subscription**:
-     - **Resource group**:
-     - **Region**: Make a choice from any of the regions mentioned in the Tips.
-     - **Name**:
-     - **Hub**: Select the Hub we just created in the step before this.
-     - Rest all keep the default.
-     - Click **Create + Review**, and then **Create**.
+    - **Subscription**:
+    - **Resource group**:
+    - **Region**: Make a choice from any of the regions mentioned in the Tips.
+    - **Name**:
+    - **Hub**: Select the Hub we just created in the step before this.
+    - Rest all keep the default.
+    - Click **Create + Review**, and then **Create**.
 2. Wait for your Azure AI Project resource deployment to be completed.
 
 <<Insert project8 here>>
@@ -167,7 +190,9 @@ The reason for not to use xls as source data or for data transformation is since
 
 **TIP**: If there are no organizational policies and constraints applied to any subscription, you can directly sign up at [https://ai.azure.com] and create the project. While doing so, all other resources will also be created. You just need an AI search service resource to be created beforehand.
 
-### 8. Deploy Models
+---
+
+### 8️⃣ Deploy Models
 You need two models to implement your solution:
 - An embedding model to vectorize text data for efficient indexing and processing.
 - A model that can generate natural language responses to questions based on your data.
@@ -186,7 +211,6 @@ c. Repeat the previous steps to deploy a `gpt-35-turbo-16k` model with the deplo
 d. Select the `gpt-35-turbo-16k` model, and click on **Open in playground**.
 e. Test the chatbot with a question "What do you do?" and check the response.
 f. Now change the model instructions and context message to the following:
-
 
 <<Insert model9 here>>
 
@@ -208,8 +232,12 @@ f. Now change the model instructions and context message to the following:
 g. Select **Apply changes**.
 h. Test the chatbot with the question "What do you do?" You will get a response specific to the new context. The same question asked before the context change would have been very generic.
 
+---
+
 ### Milestone #1: Define & Explore
 You can test the model by going into the playground and chatting with the model. Ask some generic questions, and it will give you generic answers. At this point, the model is looking for data it was trained on and is not grounded with custom data. We were also able to customize the model instructions and context by adding more specific data for responding to user questions.
+
+---
 
 ### Milestone #2: Add Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding
 
@@ -286,6 +314,8 @@ You can test the model by going into the playground and chatting with the model.
 Option 4#a:
 <<Insert conn10 here>>
 
+---
+
 ### 6. Add the Custom Data to AI Foundry
 
 a. Go to your project in Azure AI Foundry.
@@ -301,7 +331,6 @@ e. Select the subfolder inside the main folder and click **Next**.
 f. Give the data a name so you can recognize it.
 
 <<Insert data11 here>>
-
 
 g. Once created, make sure the data is readable and displayed with the number of files and total size updated. In the preview, you can see the files you have uploaded.
 
@@ -320,6 +349,8 @@ h. Now we will go ahead and create the Index for the already connected custom da
 > **TIP**: If you're curious about the steps happening on the back end, click on the job details, and it will take you to (https://ml.azure.com) and show all the jobs and steps it is running for vector indexing. This will take a lot of time depending on the number of documents you have and the type of resources and limits you use on all the components involved in this step.
 
 <<Insert vector13 here>>
+
+---
 
 ### 7. Add Your Custom Data to Your Chat Model
 
@@ -352,7 +383,6 @@ You will also notice that the app can quickly retrieve individual details. Howev
 ### Milestone #2: Result
 
 Build & Customize - Generative AI app that uses your own custom data. You can now chat with the model asking the same question as before, and this time it uses information from your data to construct the response. You can expand the references button to see the data that was used.
-
 
 ### Milestone #3: Build & Customize - Create, Iterate, and Debug Your Orchestration Flows 
 
@@ -475,32 +505,30 @@ Congratulations! You have now trained the model with your own data and created a
 
 ### Milestone #3: Result
 
-The sample prompt flow you are using implements the prompt logic for a chat application in which the user can iteratively submit text input to the chat interface. The conversational history is retained and included in the context for each iteration. With this, the challenge #3 is completed,we still have not solved the problem of bulk response querry or rather sql formatted querries in human languague problem . Hungry for more? Let’s explore further!
-
+The sample prompt flow you are using implements the prompt logic for a chat application in which the user can iteratively submit text input to the chat interface. The conversational history is retained and included in the context for each iteration. With this, the challenge #3 is completed,we still have not solved the problem of bulk response querry or rather sql formatted querries in human languague problem. Hungry for more? Let’s explore further!
 
 ### Milestone #4: Query multiple CSV files using  Azure OpenAI & Langchain framework
 
-**Context**: At the end of Milestone#2 we saw we where able to ask specific questions like individual details but when it comes to sql formatted querries in human readable form the chat application is not functioing well .
+**Context**: At the end of Milestone#2 we saw we where able to ask specific questions like individual details but when it comes to sql formatted querries in human readable form the chat application is not functioning well.
 The reason being the chat promopt ,it is not autonomous and when the source data is too large ,like in our case or it is a semi structured data like csv or excel it does not function well ,that is where the this milestone enter.
-We can combine the AI Agent and OpenAI and we get a very powerfull flexible autonomus system which can calculate and query complex questions in human readable format 
+We can combine the AI Agent and OpenAI and we get a very powerfull flexible autonomus system which can calculate and query complex questions in human readable format
 
 #### 1. Create an Azure OpenAI resource from the portal
 1. Sign in to the Azure portal.
 2. Select/Search **Azure OpenAI**.
 3. Select **+Create**.
 4. Enter the following details:
-     - **Subscription**:
-     - **Resource group**:
-     - **Region**:
-     - **Name**:
-     - **Pricing tier**:Standard SO
+    - **Subscription**:
+    - **Resource group**:
+    - **Region**:
+    - **Name**:
+    - **Pricing tier**:Standard SO
 5. Keep the rest all default
 6. Select **Review + Create**.
 7. Once the deployment is completed go to the resource and check the keys and Endpoints and all ,we will need those for later purposes
 8. Click of Go to Azure AI Foundry portal and the rest of the work will be done in the foundry portal
 
 <<Insert openai14 here>>
-
 
 ### 2. Deploy Model
 You need a model to implement your solution:
@@ -533,8 +561,7 @@ Linter
 Pylance  
 Python  
 Python Debugger  
-Python snippets  
-```
+Python snippets
 
 At this point using the VScode terminal make sure you are connecting into the Azure environment 
 you can use  
@@ -545,7 +572,6 @@ azd auth login **If Azure developwe CLi is not installed we can install it provi
 
 1. Install the various python packages we will be using during this coding session.open up a new file with .ipynb extension,this will help us run the code in cells and seperate functions ,this is better for troubleshooting and learning the python coding also
 
-
 ```python
 %pip install openai
 %pip install langchain
@@ -555,7 +581,6 @@ azd auth login **If Azure developwe CLi is not installed we can install it provi
 %pip install tabulate
 %pip install azure-storage-blob
 ```
-
 
 2. Import the needed packages
 
@@ -638,25 +663,26 @@ agent.invoke("how many addresses are from Texas?")
 agent.invoke("can you list down all the address IDs for the addresses from Texas?")
 ```
 
-Congratulations! You are now able to talk to the CSV using the OpenAI resources programmatically. the last two questions where not answered in all the first 3 milestones and we started getting the correct respones for the questions we asked in the format we want 
-These 4 milestones represent the journey of GenAI apps over the last 24-36 months. At this point, we can converse with any type of data using OpenAI ML frameworks and Foundry offerings.
+Congratulations! 🎉 You are now able to talk to the CSV using the OpenAI resources programmatically. The last two questions weren't answered in the first 3 milestones, and we started getting the correct responses for the questions we asked in the format we want! 🏆
 
-### Milestone #4: Result
+These 4 milestones represent the journey of GenAI apps over the last 24-36 months. 🕰️ At this point, we can converse with any type of data using OpenAI ML frameworks and Foundry offerings. 💬
 
-The output will be more accurate, giving you answers just like how you query structured data, but without having to remember any syntax and can be done in human-readable prompts. The next step is to use different frameworks and create different agents to achieve specific goals for your organization. It can be multi-agent, single agent using different frameworks, different sources of data, and then deploy all this as a web app or simple websites (which use Azure web apps) or using Python programming (there are lightweight packages to deploy this as websites).
+### Milestone #4: Result ✨
 
-Now we have solved all the use cases of reading different source files and getting response based on the source data.At this point the intelligence of app is same as that of the intelligence of the prompt engineer who is asking the question ,how can you make that also better,Enter multi agent applications, these are small seperate autonomus systems who will talk in parallel ,serieal or in back and forth conversations ,giving you a final reformed product which other wise will take houes to find out 
-Learn more about multi agent AI applications in the coming challenge 
+The output will be more accurate, giving you answers just like how you query structured data, but without having to remember any syntax and can be done in human-readable prompts. 🤩 The next step is to use different frameworks and create different agents to achieve specific goals for your organization. 🎯 It can be multi-agent, single agent using different frameworks, different sources of data, and then deploy all this as a web app or simple websites (which use Azure web apps) or using Python programming (there are lightweight packages to deploy this as websites). 🌐
 
-Congratulations once again!!!!
+Now we have solved all the use cases of reading different source files and getting responses based on the source data. 🥳 At this point, the intelligence of the app is the same as that of the intelligence of the prompt engineer who is asking the question. How can you make that also better? Enter multi-agent applications! 🧠 These are small, separate autonomous systems that will talk in parallel, serial, or in back-and-forth conversations, giving you a final reformed product that otherwise would take hours to find out. 🚀
+Learn more about multi-agent AI applications in the coming challenge! 📚
 
-### Extra Credits
+Congratulations once again!!!! 👏
 
-- Deploy your web app using the new deployment you just finished and test it.
-- Understand the difference between Temperature and P value, play around with them and see how the results vary.
-- Change the model instruction and context, in a funny way or in a tone used by your favorite movie character.
-- Checkout more details on how the fabric can be used as a source for the AI app ,when it will be in preview and when it will be GA
+### Extra Credits 🌟
 
-### Clean Up
+- Deploy your web app using the new deployment you just finished and test it. 🚀
+- Understand the difference between Temperature and P value, play around with them and see how the results vary. 🌡️
+- Change the model instruction and context, in a funny way or in a tone used by your favorite movie character. 🎭
+- Check out more details on how Fabric can be used as a source for the AI app, when it will be in preview, and when it will be GA. 🧵
 
-You can remove the deployments one by one and once done, get rid of the resource group you created and that should clean up everything. Do it the next day after the lab so that you can revisit in case of any doubts for a good 12 hours.
+### Clean Up 🧹
+
+You can remove the deployments one by one and once done, get rid of the resource group you created, and that should clean up everything. 🗑️ Do it the next day after the lab so that you can revisit in case of any doubts for a good 12 hours. ⏳
