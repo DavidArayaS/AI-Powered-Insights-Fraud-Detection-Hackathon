@@ -48,7 +48,7 @@ In this challenge, you will:
 ### 2️⃣ Create/Use the existing Storage account (this will be source of our custom data)
 
 **TIP**: The source of your data can be Fabric or Data Lake Gen2 from the previous challenges, but that will involve some additional steps to fulfill and might require some extra efforts to set the same up.  
-Since we are time bound, we will just use the Dimension Xls (which will be converted to csv/txt here) for the purpose of this challenge. If you were able to successfully finish the first 3 challenges, you already have 3 Dim xls files with you in Fabric Lakehouse and can convert the files to CSV (using a dataflow to transform, then a data copy pipeline to copy from Fabric to the new storage account) and upload them into the storage account we are going to create below.
+Since we are time-bound, we will just use the Dimension Xls (which will be converted to csv/txt here) for the purpose of this challenge. If you were able to successfully finish the first 3 challenges, you already have 3 Dim xls files with you in Fabric Lakehouse and can convert the files to CSV (using a dataflow to transform, then a data copy pipeline to copy from Fabric to the new storage account) and upload them into the storage account we are going to create below.
 
 First, use a dataflow Gen2 transformation on the files.  
 Second step is to convert the transformed files to csv using the snippet in a notebook:
@@ -84,7 +84,7 @@ Or the Alternative option is to manually do it, for keeping the challenge simple
 Get the xls files and save them locally in txt format or csv format and save them inside a subfolder. This folder can be uploaded to the parent container inside our storage account once the storage account creation steps are completed.
 
 **Reason to go with manual upload**: Since the Excel sheet we have created during the last process might have some different formatting it is always better to upload a folder of all the files saved in `.txt` format and upload directly to the storage account container in-order to save time.  
-The reason for not to use `.xls` as source data or for data transformation is since the formatting is key and any change or problems in the file inside any columns will result in failure of recognizing the file.
+The reason for not to use `.xls` as source data or for data transformation is becuase the formatting is key and any change or problems in the file inside any columns will result in failure of recognizing the file.
 
 1. On the **Storage accounts** page, select **Create**.  
 2. Fill in the required details.  
@@ -156,7 +156,7 @@ The reason for not to use `.xls` as source data or for data transformation is si
 ---
 
 ### 6️⃣ Create a Hub
-1. On the Ai Foundry page in [https://portal.azure.com], select **+ Create** and select **Hub**. Then create a new Hub resource with the following settings:
+1. On the AI Foundry page in [https://portal.azure.com], select **+ Create** and select **Hub**. Then create a new Hub resource with the following settings:
    - **Subscription**:
    - **Resource group**:
    - **Region**: Make a choice from any of the regions mentioned in the Tips.
@@ -174,7 +174,7 @@ The reason for not to use `.xls` as source data or for data transformation is si
 ---
 
 ### 7️⃣ Create a Project
-1. On the Ai Foundry page in [https://portal.azure.com], select **+ Create** and select **Project**. Then create a new Project resource with the following settings:
+1. On the AI Foundry page in [https://portal.azure.com], select **+ Create** and select **Project**. Then create a new Project resource with the following settings:
    - **Subscription**:
    - **Resource group**:
    - **Region**: Make a choice from any of the regions mentioned in the Tips.
@@ -641,7 +641,7 @@ agent = create_csv_agent(
 agent.invoke("how many addresses are from Texas?")
 ```
 
-8. Invoke the agent and ask more complicated questions which are structured queries but in human-readable format which also did not gave us the right answers in the past milestones
+8. Invoke the agent and ask more complicated questions which are structured queries but in human-readable format which also did not give us the right answers in the past milestones
 
 ```python
 agent.invoke("can you list down all the address IDs for the addresses from Texas?")
