@@ -203,54 +203,63 @@ When it’s done, it will look like this:
 ---
 
 ### 8️⃣ Deploy Models
+
 You need two models to implement your solution:
-- **An embedding model** to vectorize text data for efficient indexing and processing.
+- **An embedding model** to vectorize text data for efficient indexing and processing.  
 - **A model** that can generate natural language responses to questions based on your data.
 
-a. In the **Azure AI Foundry** portal, go to your **project**. In the **navigation pane** on the left, under **My assets**, select **Models + endpoints**.  
-b. Create a **new deployment** of the `text-embedding-ada-002` model with the following settings by selecting **Customize** in the Deploy model wizard:
-   - **Deployment name**: `text-embedding-ada-002`
-   - **Deployment type**: Standard
-   - **Model version**: Select the default version
-   - **AI resource**: Select the resource you created previously
-   - **Tokens per Minute Rate Limit (thousands)**: Slide it to the maximum
-   - **Content filter**: DefaultV2
-   - **Enable dynamic quota**: (optional; depends on your usage)
+1. In the **Azure AI Foundry** portal, go to your **project**. In the **navigation pane** on the left, under **My assets**, select **Models + endpoints**.
+
+2. Create a **new deployment** of the `text-embedding-ada-002` model with the following settings by selecting **Customize** in the Deploy model wizard:
+
+   - **Deployment name**: `text-embedding-ada-002`  
+   - **Deployment type**: Standard  
+   - **Model version**: Select the default version  
+   - **AI resource**: Select the resource you created previously  
+   - **Tokens per Minute Rate Limit (thousands)**: Slide it to the maximum  
+   - **Content filter**: DefaultV2  
+   - **Enable dynamic quota**: (optional; depends on your usage)  
+
    > **Note**: If your current AI resource location doesn’t have sufficient quota for the model you want to deploy, you may be prompted to choose a different location. A new AI resource will be created and connected to your project if needed.
 
-c. **Repeat** these steps to deploy a `gpt-35-turbo-16k` model with the deployment name `gpt-35-turbo-16k`. (You can experiment with the latest GPT models if you wish.)  
-d. **Select** the `gpt-35-turbo-16k` model and click **Open in playground**.  
-e. **Test the chatbot** with a question like “What do you do?” and check the response.  
-f. **Now change** the model instructions and context message to the following:
+3. **Repeat** these steps to deploy a `gpt-35-turbo-16k` model with the deployment name `gpt-35-turbo-16k`. (You can experiment with the latest GPT models if you wish.)
 
-![Model Instructions](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/model9.png)
+4. **Select** the `gpt-35-turbo-16k` model and click **Open in playground**.
 
-**Objective**: Assist users with financial-related inquiries, offering insights, advice, and recommendations as a knowledgeable financial advisor.
+5. **Test the chatbot** with a question like “What do you do?” and check the response.
 
-**Capabilities**:
-- Provide up-to-date financial information, including market trends, investment options, and financial products.
-- Offer personalized financial advice based on user preferences, risk tolerance, and financial goals.
-- Share tips on budgeting, saving, and managing financial risks.
-- Help with financial planning, including retirement planning, tax strategies, and wealth management.
-- Answer common financial questions and provide solutions to potential financial issues.
+6. **Now change** the model instructions and context message to the following:
 
-**Instructions**:
-1. Engage with the user in a friendly and professional manner, as a financial advisor would.
-2. Use available resources to provide accurate and relevant financial information.
-3. Tailor responses to the user's specific financial needs and interests.
-4. Ensure recommendations are practical and consider the user's financial safety and comfort.
-5. Encourage the user to ask follow-up questions for further assistance.
+   ![Model Instructions](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/model9.png)
 
-g. Select **Apply changes**.  
-h. **Test the chatbot** with the question “What do you do?” to see a context-specific response. Notably, if you asked the same question before updating the context, the answer would have been more generic.
+   **Objective**: Assist users with financial-related inquiries, offering insights, advice, and recommendations as a knowledgeable financial advisor.
+
+   **Capabilities**:
+   - Provide up-to-date financial information, including market trends, investment options, and financial products.
+   - Offer personalized financial advice based on user preferences, risk tolerance, and financial goals.
+   - Share tips on budgeting, saving, and managing financial risks.
+   - Help with financial planning, including retirement planning, tax strategies, and wealth management.
+   - Answer common financial questions and provide solutions to potential financial issues.
+
+   **Instructions**:
+   1. Engage with the user in a friendly and professional manner, as a financial advisor would.
+   2. Use available resources to provide accurate and relevant financial information.
+   3. Tailor responses to the user's specific financial needs and interests.
+   4. Ensure recommendations are practical and consider the user's financial safety and comfort.
+   5. Encourage the user to ask follow-up questions for further assistance.
+
+7. Select **Apply changes**.
+
+8. **Test the chatbot** with the question “What do you do?” to see a context-specific response. Notably, if you asked the same question before updating the context, the answer would have been more generic.
+
 ---
 
-### Milestone #1: Define & Explore
+## 🚀 Milestone #1: Define & Explore
 You can test the model by heading to the **playground** and chatting with it. Ask some generic questions, and you’ll get generic answers. At this point, the model is looking for data it was trained on and is **not** grounded with **custom data** yet. We were also able to customize the model instructions and context to provide more specific responses to user questions.
 
 ---
 
-### Milestone #2: Add Data to Your Project and Explore the Response of the Chatbot Post Indexing and Grounding
+## 🚀 Milestone #2: Add Data to Your Project and Explore the Response of the Chatbot Post Indexing and Grounding
 
 1. **Enable Managed Identity**  
    a. Enable **MI** for both **AI service** and **AI search service**.  
@@ -380,20 +389,20 @@ You have now trained the model with **your own data**, and it’s ready to provi
 - If you use **txt** format, responses are often better.
 - If you use **csv**, you might see **inconsistent** answers.
 
-**Milestone #4** will help address some of these limitations by leveraging an **AI agent**.
+### **Milestone #4** will help address some of these limitations by leveraging an **AI agent**.
 
 If you’re using csv data as the source, consider uploading data and creating an index with **txt** files to see if results improve.
 
 You might also notice the app retrieves individual details easily but struggles with **bulk responses**. This is a limitation of the current setup—more **frameworks** or **customization** will be needed for broader or more complex queries.
 ---
 
-### Milestone #2: Result
+## 🚀 Milestone #2: Result
 
 Build & Customize - Generative AI app that uses your own custom data. You can now chat with the model asking the same question as before, and this time it uses information from your data to construct the response. You can expand the references button to see the data that was used.
 
 ---
 
-### Milestone #3: Build & Customize - Create, Iterate, and Debug Your Orchestration Flows
+## 🚀 Milestone #3: Build & Customize - Create, Iterate, and Debug Your Orchestration Flows
 
 **Context**: The sample prompt flow you are using implements the prompt logic for a chat application in which the user can iteratively submit text input to the chat interface. The conversational history is retained and included in the context for each iteration. The prompt flow orchestrates a sequence of tools to:  
 1. Append the history to the chat input to define a prompt in the form of a contextualized question.  
@@ -500,7 +509,7 @@ The sample prompt flow you are using implements the prompt logic for a chat appl
 
 ---
 
-### Milestone #4: Query multiple CSV files using Azure OpenAI & Langchain framework
+## 🚀 Milestone #4: Query multiple CSV files using Azure OpenAI & Langchain framework
 
 **Context**: At the end of Milestone #2, we saw we were able to ask specific questions (like individual details), but when it comes to SQL-formatted queries in human-readable form, the chat application is not functioning well.  
 The reason is that the chat prompt is not autonomous, and when the source data is too large (like in our case) or it is semi-structured data like CSV or Excel, it does not function well. That is where this milestone comes in.  
@@ -663,7 +672,7 @@ Congratulations! 🎉 You are now able to talk to the CSV using the OpenAI resou
 
 These 4 milestones represent the journey of GenAI apps over the last 24-36 months. 🕰️ At this point, we can converse with any type of data using OpenAI ML frameworks and Foundry offerings. 💬
 
-### Milestone #4: Result ✨
+## 🚀 Milestone #4: Result ✨
 
 Your results are **significantly more accurate**, enabling you to query semi-structured or unstructured data in **human-readable prompts** without memorizing any syntax. 🤩 Next, you can explore different frameworks and create other **agents** to fulfill various organizational needs. 🎯 These can include multi-agent systems, single agents working across multiple frameworks or data sources, and potentially deploying your solution as a **web app** or simple site (e.g., using Azure Web Apps), or via Python-based lightweight deployment packages. 🌐
 
