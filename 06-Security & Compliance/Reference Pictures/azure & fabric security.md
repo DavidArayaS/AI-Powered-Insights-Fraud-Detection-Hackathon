@@ -29,7 +29,7 @@ Provides security recommendations for Azure resources.
 
 ✅ Defender for Storage:
 
-    Protects against ransomware, unauthorized access, and data exfiltration.
+Protects against ransomware, unauthorized access, and data exfiltration.
 
 ✅ Defender for AI Workloads
 
@@ -40,7 +40,7 @@ Provides real-time monitoring for OpenAI & ML models.
 
 ✅ Defender for Key Vault:
 
-    Prevents unauthorized access to secrets, certificates, and keys.
+ Prevents unauthorized access to secrets, certificates, and keys.
 
 # 🎯 Step 3: Check Your Security Posture Score
 
@@ -50,11 +50,11 @@ Provides real-time monitoring for OpenAI & ML models.
 
 🛠️ Best Practices for Improving Security Posture:
 
-    Ensure Role-Based Access Control (RBAC): Assign least privilege access.
+Ensure Role-Based Access Control (RBAC): Assign least privilege access.
 
-    Monitor Compliance Recommendations in Defender for Cloud.
+Monitor Compliance Recommendations in Defender for Cloud.
 
-    Set up Security Alerts & Auto-remediation policies.
+ Set up Security Alerts & Auto-remediation policies.
 
 # 🎯 Goal: Aim for a Secure Score >75% by following the security recommendations.
 
