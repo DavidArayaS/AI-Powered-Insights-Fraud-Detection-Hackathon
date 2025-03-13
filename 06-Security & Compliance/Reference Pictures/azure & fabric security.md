@@ -58,52 +58,56 @@ Monitor Compliance Recommendations in Defender for Cloud.
 
 # 🎯 Goal: Aim for a Secure Score >75% by following the security recommendations.
 
+---
+
 # 🔹 Part 2: Microsoft Fabric Security - Protecting Data in the Lakehouse
 
-🎯 Step 1: Understanding Fabric Security Principles
-Fabric Security Covers:
+🎯 Understanding Fabric Security Principles
+
+## Fabric Security Covers:
+
 ✔ Authentication – Microsoft Entra ID (formerly Azure AD).
+
 ✔ Authorization – Role-based access to workspaces & data.
+
 ✔ Data Protection – Encryption at rest & in transit.
+
 ✔ Network Security – Private endpoints & firewalls.
 
-🎯 Step 2: Secure Your Fabric Lakehouse Dataflows
+🎯  Secure Your Fabric Lakehouse Dataflows
+
 📌 Protecting Data in OneLake & Fabric Workspaces
 
 ✅ Control Access via Workspaces
 
 Assign Contributor, Admin, or Viewer roles to limit data access.
+
 ✅ Use Private Endpoints for Secure Connectivity
 
 Restrict access to trusted networks.
+
 ✅ Enable Managed Private Endpoints
 
 This prevents unauthorized data movement to untrusted locations.
+
 ✅ Apply Row-Level & Column-Level Security
 
 Restrict data visibility based on user roles & permissions.
+
 ✅ Monitor Data Activity with Fabric Security Logs
 
 Set up alerts for suspicious activities in Microsoft Defender.
-🏁 Final Security Checklist
-🔹 In Azure Defender for Cloud:
-✔ Security Posture Score above 75%.
-✔ Defender plans enabled for storage, AI, and key vaults.
-✔ Security recommendations reviewed & remediated.
-
-🔹 In Microsoft Fabric:
-✔ Workspaces secured with RBAC.
-✔ Private Endpoints enabled for sensitive data.
-✔ Dataflows protected with row-level security.
-✔ Security logs monitored for anomalies.
 
 🚀 By implementing these security measures, your Azure & Fabric environments will be resilient, compliant, and well-protected against cyber threats! 🎯 🔒
 
 🔹 Next Steps
+
 🔍 Explore Advanced Security Features:
 
 Automated Threat Detection in Defender for Cloud.
+
 Multi-Agent Security Monitoring for AI workloads.
+
 Implementing CI/CD Security Best Practices for AI & ML models.
 
 💡 Stay secure & proactive! 🚀
