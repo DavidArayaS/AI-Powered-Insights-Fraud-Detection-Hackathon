@@ -1,6 +1,6 @@
-# 📖 Solution to Challenge 04: Setting Up LLMs for a Chatbot and the Resources Needed
+# 📖 Solution to Challenge 04: Setting Up LLMs for a Chatbot and its dependencies.
 
-## 🔹 Objective 
+## 🔹 Objective
 In this challenge, you will:
 
 ✅ Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same.  
@@ -25,7 +25,7 @@ In this challenge, you will:
   - North Central US
   - Sweden Central
   - Switzerland
-- Check the TPM quota for your subscription for the LLMs `text-embedding-ada-002` and `gpt-35-turbo-16k`. If you are already familiar with the same, request a quota addition if the current quota is in the 2-digit range (10k-90k) and increase it to whatever is maximum for each model.
+- Check the TPM quota for your subscription for the LLMs `text-embedding-ada-002` and `gpt-35-turbo-16k`. If you are already familiar with the same, request a quota addition if the current quota is in the 2-digit range (10k–90k) and increase it to whatever is maximum for each model.
 
 ---
 
@@ -77,14 +77,18 @@ for file_name in os.listdir(source_folder):
         df.to_csv(csv_file_path, index=False)
 
         print(f"Converted {file_name} to {csv_file_name} and saved to {destination_folder}")
+
 ```
 
-Once the conversion is completed you can use a data factory copy job to copy from fabric to the new storage account (Please follow the steps in challenge 2 to complete this task)  
-Or the Alternative option is to manually do it, for keeping the challenge simple we suggest following this alternative solution.  
-Get the xls files and save them locally in txt format or csv format and save them inside a subfolder. This folder can be uploaded to the parent container inside our storage account once the storage account creation steps are completed.
+Once the conversion is completed you can use a **Data Factory copy job** to copy from Fabric to the new storage account (please follow the steps in **Challenge 2** to complete this task).  
+**Alternatively**, to keep this challenge simpler, you can **manually** do it:
 
-**Reason to go with manual upload**: Since the Excel sheet we have created during the last process might have some different formatting it is always better to upload a folder of all the files saved in `.txt` format and upload directly to the storage account container in-order to save time.  
-The reason for not to use `.xls` as source data or for data transformation is becuase the formatting is key and any change or problems in the file inside any columns will result in failure of recognizing the file.
+- Get the `.xls` files and **save them locally** in `.txt` or `.csv` format.
+- Save them inside a **subfolder**.
+- This folder can then be **uploaded** to the **parent container** in our storage account once the storage account creation steps are completed.
+
+**Reason to go with manual upload**:  
+Because the Excel sheet from the previous process might have different formatting, it is often best to upload a folder of all the files saved in `.txt` format directly to the storage account container to **save time**. Additionally, `.xls` can be problematic if there are any formatting issues in the columns, which may cause the file to fail recognition.
 
 1. On the **Storage accounts** page, select **Create**.  
 2. Fill in the required details.  
@@ -93,16 +97,21 @@ The reason for not to use `.xls` as source data or for data transformation is be
    - **Resource group**:
    - **Storage account name**:
    - **Region**:
-   - **Performance**: Select Standard
-   - **Redundancy**: LRS
-   - **Networking**: Enable public access from all networks (this will help avoid isolated environment-specific networking issues)
+   - **Performance**: Select **Standard**
+   - **Redundancy**: **LRS**
+   - **Networking**: Enable public access from all networks (to avoid isolated environment-specific issues)
    - Keep everything else default.
 4. Select **Review + Create**.  
-5. Click **Create**.  
+5. Click **Create**.
 
 ![Create Storage Account](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/2.png)
 
-6. Once the storage account is created, create a container `refined-data` and upload all 4 csv files into the container (inside a folder with the name `csv-data` or `txt-data`), so that at the end of the activity you will have a storage account with a container inside, and a subfolder inside that container with all the files in CSV format. Once everything is done, it will look like below:
+6. Once the storage account is created, create a container `refined-data` and upload all four CSV files into the container (inside a folder named `csv-data` or `txt-data`). By the end of this step, you will have:
+   - A **storage account** with a **container** inside,
+   - A **subfolder** inside that container,
+   - All the files in CSV format within that subfolder.
+
+When it’s done, it will look like this:
 
 ![Container with CSV Files](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/3.png)
 
@@ -116,7 +125,7 @@ The reason for not to use `.xls` as source data or for data transformation is be
    - **Resource group**:
    - **Key Vault Name**:
    - **Region**:
-   - **Pricing tier**: Standard
+   - **Pricing tier**: **Standard**
    - Keep everything else default.
 4. Select **Review + Create**.  
 5. Click **Create**.
@@ -130,92 +139,94 @@ The reason for not to use `.xls` as source data or for data transformation is be
    - **Subscription**:
    - **Resource group**:
    - **Service name**:
-   - **Location**: Make a random choice from any of the regions mentioned in the Tips.
-   - **Pricing tier**: Standard
+   - **Location**: Choose from any region mentioned in the Tips.
+   - **Pricing tier**: **Standard**
    - **Scale**: Increase the search unit by 4 to improve query performance.
-2. Wait for your Azure AI Search resource deployment to be completed.
+2. Wait for your Azure AI Search resource deployment to complete.
 
 ![Azure AI Search Creation](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/search5.png)
+
 
 ---
 
 ### 5️⃣ Create an Azure AI Service
-1. On the home page, select **+ Create a resource** and search for **Azure AI Services**. Then create a new Azure AI Service resource with the following settings:
+1. On the **home page**, select **+ Create a resource** and search for **Azure AI Services**. Then create a new Azure AI Service resource with the following settings:
    - **Subscription**:
    - **Resource group**:
-   - **Region**: Make a choice from any of the regions mentioned in the Tips.
+   - **Region**: Choose from any of the regions mentioned in the Tips.
    - **Name**:
-   - **Pricing tier**: Standard
+   - **Pricing tier**: **Standard**
    - **Scale**: Increase the search unit by 4 to improve query performance.
-2. Wait for your Azure AI Service resource deployment to be completed.
+2. Wait for your **Azure AI Service** resource deployment to be completed.
 
 ![Azure AI Services Creation](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/aiservice6.png)
 
-**Remarks**: At this point, all the resources needed to build a Hub and Project inside a Hub in AI Foundry are completed.
+**Remarks**: At this point, all the resources needed to build a **Hub** and **Project** inside a Hub in **AI Foundry** are completed.
 
 ---
 
 ### 6️⃣ Create a Hub
-1. On the AI Foundry page in [https://portal.azure.com], select **+ Create** and select **Hub**. Then create a new Hub resource with the following settings:
+1. On the **AI Foundry** page in [https://portal.azure.com], select **+ Create** and choose **Hub**. Then create a new Hub resource with the following settings:
    - **Subscription**:
    - **Resource group**:
-   - **Region**: Make a choice from any of the regions mentioned in the Tips.
+   - **Region**: Select from the recommended regions in the Tips.
    - **Name**:
-   - **Connect AI Services incl. OpenAI**: Select the AI service we created earlier from the drop-down.
-   - **Storage Tab**: Select the storage account we created earlier.
-   - **Key Vault Tab**: Select the key vault we created earlier.
-   - **Networking**: Keep the default (public).
-   - Rest all keep the default.
-   - Click **Create + Review**, and then **Create**.
-2. Wait for your Azure AI Hub resource deployment to be completed.
+   - **Connect AI Services incl. OpenAI**: Select the AI service you created earlier from the drop-down.
+   - **Storage Tab**: Select the storage account created previously.
+   - **Key Vault Tab**: Select the key vault you created.
+   - **Networking**: Keep the default (**public**).
+   - Keep everything else at the default.
+   - Click **Create + Review**, then **Create**.
+2. Wait for your **Azure AI Hub** resource deployment to finish.
 
 ![Hub Creation](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/hub7.png)
 
 ---
 
 ### 7️⃣ Create a Project
-1. On the AI Foundry page in [https://portal.azure.com], select **+ Create** and select **Project**. Then create a new Project resource with the following settings:
+1. On the **AI Foundry** page in [https://portal.azure.com], select **+ Create** and choose **Project**. Then create a new Project resource with the following settings:
    - **Subscription**:
    - **Resource group**:
-   - **Region**: Make a choice from any of the regions mentioned in the Tips.
+   - **Region**: Choose from the recommended regions in the Tips.
    - **Name**:
-   - **Hub**: Select the Hub we just created in the step before this.
-   - Rest all keep the default.
-   - Click **Create + Review**, and then **Create**.
-2. Wait for your Azure AI Project resource deployment to be completed.
+   - **Hub**: Select the Hub you created in the previous step.
+   - Leave the rest at default.
+   - Click **Create + Review**, then **Create**.
+2. Wait for your **Azure AI Project** resource deployment to complete.
 
 ![Project Creation](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/project8.png)
 
-**Remarks**: This should not take more than 20 minutes to build. Now we shift to the AI Foundry page. Go to [https://ai.azure.com]. Select the project and we will be working inside this going forward.
+**Remarks**: This should take no more than 20 minutes to build. Once finished, move to the **AI Foundry** page at [https://ai.azure.com]. Select the project, and we will do the remaining work inside this environment.
 
-**TIP**: If there are no organizational policies and constraints applied to any subscription, you can directly sign up at [https://ai.azure.com] and create the project. While doing so, all other resources will also be created. You just need an AI search service resource to be created beforehand.
+**TIP**: If there are no organizational policies or constraints, you can sign up at [https://ai.azure.com] and create the project directly. When doing so, all other resources are also created. You just need an **AI search service** resource in advance.
 
 ---
 
 ### 8️⃣ Deploy Models
 You need two models to implement your solution:
-- An embedding model to vectorize text data for efficient indexing and processing.
-- A model that can generate natural language responses to questions based on your data.
+- **An embedding model** to vectorize text data for efficient indexing and processing.
+- **A model** that can generate natural language responses to questions based on your data.
 
-a. In the Azure AI Foundry portal, in your project, in the navigation pane on the left, under **My assets**, select the **Models + endpoints** page.  
-b. Create a new deployment of the `text-embedding-ada-002` model with the following settings by selecting **Customize** in the Deploy model wizard:
-   - **Deployment name**: text-embedding-ada-002
+a. In the **Azure AI Foundry** portal, go to your **project**. In the **navigation pane** on the left, under **My assets**, select **Models + endpoints**.  
+b. Create a **new deployment** of the `text-embedding-ada-002` model with the following settings by selecting **Customize** in the Deploy model wizard:
+   - **Deployment name**: `text-embedding-ada-002`
    - **Deployment type**: Standard
    - **Model version**: Select the default version
-   - **AI resource**: Select the resource created previously
-   - **Tokens per Minute Rate Limit (thousands)**: Slide it to maximum
+   - **AI resource**: Select the resource you created previously
+   - **Tokens per Minute Rate Limit (thousands)**: Slide it to the maximum
    - **Content filter**: DefaultV2
-   - **Enable dynamic quota**:  
-   > **Note**: If your current AI resource location doesn’t have quota available for the model you want to deploy, you will be asked to choose a different location where a new AI resource will be created and connected to your project.
+   - **Enable dynamic quota**: (optional; depends on your usage)
+   > **Note**: If your current AI resource location doesn’t have sufficient quota for the model you want to deploy, you may be prompted to choose a different location. A new AI resource will be created and connected to your project if needed.
 
-c. Repeat the previous steps to deploy a `gpt-35-turbo-16k` model with the deployment name `gpt-35-turbo-16k` (if you are curious you can try some latest gpt models also).  
-d. Select the `gpt-35-turbo-16k` model, and click on **Open in playground**.  
-e. Test the chatbot with a question "What do you do?" and check the response.  
-f. Now change the model instructions and context message to the following:
+c. **Repeat** these steps to deploy a `gpt-35-turbo-16k` model with the deployment name `gpt-35-turbo-16k`. (You can experiment with the latest GPT models if you wish.)  
+d. **Select** the `gpt-35-turbo-16k` model and click **Open in playground**.  
+e. **Test the chatbot** with a question like “What do you do?” and check the response.  
+f. **Now change** the model instructions and context message to the following:
 
 ![Model Instructions](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/model9.png)
 
-**Objective**: Assist users with financial-related inquiries, offering insights, advice, and recommendations as a knowledgeable financial advisor.  
+**Objective**: Assist users with financial-related inquiries, offering insights, advice, and recommendations as a knowledgeable financial advisor.
+
 **Capabilities**:
 - Provide up-to-date financial information, including market trends, investment options, and financial products.
 - Offer personalized financial advice based on user preferences, risk tolerance, and financial goals.
@@ -231,40 +242,39 @@ f. Now change the model instructions and context message to the following:
 5. Encourage the user to ask follow-up questions for further assistance.
 
 g. Select **Apply changes**.  
-h. Test the chatbot with the question "What do you do?" You will get a response specific to the new context. The same question asked before the context change would have been very generic.
-
+h. **Test the chatbot** with the question “What do you do?” to see a context-specific response. Notably, if you asked the same question before updating the context, the answer would have been more generic.
 ---
 
 ### Milestone #1: Define & Explore
-You can test the model by going into the playground and chatting with the model. Ask some generic questions, and it will give you generic answers. At this point, the model is looking for data it was trained on and is not grounded with custom data. We were also able to customize the model instructions and context by adding more specific data for responding to user questions.
+You can test the model by heading to the **playground** and chatting with it. Ask some generic questions, and you’ll get generic answers. At this point, the model is looking for data it was trained on and is **not** grounded with **custom data** yet. We were also able to customize the model instructions and context to provide more specific responses to user questions.
 
 ---
 
-### Milestone #2: Add Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding
+### Milestone #2: Add Data to Your Project and Explore the Response of the Chatbot Post Indexing and Grounding
 
 1. **Enable Managed Identity**  
-   a. Enable MI for both AI service and AI search service.  
-   b. On the browser tab for the Search service resource in the Azure portal, enable the managed identity:
+   a. Enable **MI** for both **AI service** and **AI search service**.  
+   b. In the **Search service** resource (in the Azure portal):
       - From the left pane, under **Settings**, select **Identity**.
       - Switch **Status** to **On**.
       - Select **Save**.  
-   c. On the browser tab for the Azure AI services resource in the Azure portal, enable the managed identity:
+   c. In the **Azure AI services** resource (in the Azure portal):
       - From the left pane, under **Resource Management**, select **Identity**.
       - Switch **Status** to **On**.
       - Select **Save**.
 
 2. **Set API Access Control for Search**  
-   a. On the browser tab for the Search service resource in the Azure portal, set the API Access policy:
+   a. In the **Search service** resource (in the Azure portal):
       - From the left pane, under **Settings**, select **Keys**.
       - Under **API Access control**, select **Both**.
       - When prompted, select **Yes** to confirm the change.
 
 3. **Assign Roles**  
-   a. The general pattern for assigning role-based access control (RBAC) for any resource is:
-      - Navigate to the Azure portal for the given resource.
-      - From the left page in the Azure portal, select **Access control (IAM)**.
+   a. The general pattern for assigning role-based access control (RBAC) to any resource is:
+      - Navigate to the **Azure portal** for the given resource.
+      - From the left pane, select **Access control (IAM)**.
       - Select **+ Add > Add role assignment**.
-      - Search for the role you need to assign and select it. Then select **Next**.
+      - Search for the role you need and select it. Then click **Next**.
       - When assigning a role to yourself:
         - Select **User, group, or service principal**.
         - Select **Select members**.
@@ -272,78 +282,79 @@ You can test the model by going into the playground and chatting with the model.
       - When assigning a role to another resource:
         - Select **Managed identity**.
         - Select **Select members**.
-        - Use the dropdown to find the type of resource you want to assign. For example, Azure AI services or Search service.
-        - Select the resource from the list that appears. There might only be one, but you still need to select it.
-      - Continue through the wizard and select **Review + assign** to add the role assignment.
-   
-   b. Use these steps to assign roles for the resources you're configuring in this tutorial:
-      - Assign the following roles on the browser tab for Search service in the Azure portal:
-        - **Search Index Data Reader** to the Azure AI services managed identity
-        - **Search Service Contributor** to the Azure AI services managed identity
-        - **Contributor** to yourself (to find Contributor, switch to the Privileged administrator roles tab at the top. All other roles are in the Job function roles tab.)
-      - Assign the following roles on the browser tab for Azure AI services in the Azure portal:
-        - **Cognitive Services OpenAI Contributor** to the Search service managed identity
-        - **Contributor** to yourself (if not already in place)
-      - Assign the following roles on the browser tab for Azure Blob storage in the Azure portal:
-        - **Storage Blob Data Contributor** to the Azure AI services managed identity & Azure AI services managed identity
-        - **Contributor** to yourself (if not already in place)
+        - Use the dropdown to find the resource type you want to assign (for example, Azure AI services or Search service).
+        - Select the resource from the list. (There might only be one.)
+      - Continue through the wizard and select **Review + assign** to finalize.
 
-> **TIP**: If you are using identity-based authentication, "Storage Blob Data Contributor", "Storage File Privileged Contributor" (Inside Storage account resources) and "Cognitive Services OpenAI Contributor" (Inside AI services resource) roles must be granted to individual users that need access on the storage account.
+   b. Use these steps to assign roles for the resources you’re configuring in this tutorial:
+      - **Search service** in the Azure portal:
+        - **Search Index Data Reader** → Azure AI services managed identity
+        - **Search Service Contributor** → Azure AI services managed identity
+        - **Contributor** → yourself (to find **Contributor**, switch to the **Privileged administrator roles** tab at the top)
+      - **Azure AI services** in the Azure portal:
+        - **Cognitive Services OpenAI Contributor** → Search service managed identity
+        - **Contributor** → yourself (if not already in place)
+      - **Azure Blob storage** in the Azure portal:
+        - **Storage Blob Data Contributor** → Azure AI services managed identity & Azure AI services managed identity
+        - **Contributor** → yourself (if not already in place)
+
+> **TIP**: If you’re using identity-based authentication, **Storage Blob Data Contributor**, **Storage File Privileged Contributor** (inside Storage account resources), and **Cognitive Services OpenAI Contributor** (inside AI services resource) roles must be granted to individual users that need access on the storage account.
 
 4. **Storage Account Datastore Configuration**  
-   a. The best practice is to use Microsoft Entra Authentication  
-   b. Enable the Account Key for the storage account and make sure we can gather the information for later (use this only if #a is not an option)
+   a. The best practice is to use **Microsoft Entra Authentication**.  
+   b. Enable the **Account Key** for the storage account to gather the information for later use (only if #a isn’t an option).
 
-> **TIP**: You have other options like SAS URL creation, Entra ID authentication. For simplicity, we are choosing Entra ID authentication in the below steps.
+> **TIP**: Other options include creating SAS URLs or using Entra ID authentication. For simplicity, we’re choosing **Entra ID authentication** in the steps below.
 
 ### 5. Create Connections to the Blob Storage & AI Search
 
-   a. We have multiple ways to achieve this, but the best way is to go to the Management Center in [ai.azure.com] or go to [ml.azure.com] and create connections under **Connected resources**. Add a new connection.  
-   b. Add the Azure AI Search as an internal connection.
+   a. You can do this several ways, but one straightforward method is to go to the **Management Center** at [ai.azure.com](https://ai.azure.com) or [ml.azure.com](https://ml.azure.com) and create connections under **Connected resources**. Add a new connection.  
+   b. Add the **Azure AI Search** as an internal connection.
 
-   c. For loading the custom data (if you are not uploading the files/folder directly to the AI Foundry), you can establish the connection as per your use case. Since we are time-bound and want to ensure everyone can follow (those with organizational constraints and other Entra ID restrictions), we will use Azure Blob storage:
+   c. For loading custom data (if you haven’t uploaded the files/folder directly to AI Foundry), you can establish the connection as per your needs. Since we’re time-bound and want a solution that works for both organizational constraints and typical ID restrictions, we’ll use **Azure Blob storage**:
       1. Click on **+ New connection**.
       2. Select **Blob storage** from the Data sublist.
-      3. Select the subscription ID, storage account, and blob container (the parent container).
+      3. Select the **subscription ID**, **storage account**, and **blob container** (the parent container).
 
       **Option 4#a**:
-      4. Under authentication method, select **Microsoft Entra ID based**.
-      5. Give the connection a name, and save it.
+      4. Under **authentication method**, select **Microsoft Entra ID based**.
+      5. Provide a connection name and save it.
 
       **Option 4#b**:
-      4. Under authentication method, select **Credential based**.
-      5. Under authentication type, select **Account key**, paste the earlier copied storage account key, give the connection a name, and save it.
+      4. Under **authentication method**, select **Credential based**.
+      5. Under **authentication type**, select **Account key**. Paste in the storage account key you copied earlier, name the connection, and save.
 
 ![Connection to Blob Storage](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/conn10.png)
+
 
 ---
 
 ### 6. Add the Custom Data to AI Foundry
 
-a. Go to your project in Azure AI Foundry.  
+a. Go to your **project** in **Azure AI Foundry**.  
 b. Select **Data + Indexes**.  
 c. Select **+ New Data**.  
-d. Select the data source from the drop-down (the same connection we created in the previous step). It will take a bit, and if everything is right, it will enable the option of **Browse to storage path**. If any access issue or key issue is there, it won't enable this option and instead will enable the **Enter storage path manually** only. This is a sign to troubleshoot the issue.  
-e. Select the subfolder inside the main folder and click **Next**.  
-f. Give the data a name so you can recognize it.
+d. From the drop-down, choose the **data source** corresponding to the connection you created in the previous step. If everything is set up correctly, you’ll be able to **Browse to storage path**; if not, you might only see an option to **Enter storage path manually** (this indicates an access or key issue that you'll need to troubleshoot).  
+e. Select the **subfolder** inside your main folder and click **Next**.  
+f. Give the data a **friendly name** you can recognize.
 
 ![Data Addition in AI Foundry](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/data11.png)
 
-g. Once created, make sure the data is readable and displayed with the number of files and total size updated. In the preview, you can see the files you have uploaded.
+g. Once created, ensure the data is **readable** and displays the **number of files** and **total size**. In the preview window, you should see the files you uploaded.
 
-h. Now we will go ahead and create the Index for the already connected custom data:
+h. Next, create the **Index** for this newly connected custom data:
 1. Go to **Indexes**.
-2. Click on **+ New Index**.
-3. Select the Data Source (we have to select **Data** in AI Foundry since we already established the connection and created the data).
-4. Select the data we created in the previous step.
-5. Select the Index configuration, the AI Search service name, then give the vector index the name you want to give. Compute is auto-selected; if you want better performance, you can select a higher-value compute.
-6. Select the AOAI Service connection which got created when we created the project.
-7. Create vector index.
-8. In the status, you can see that your data ingestion is in progress. This process might take several minutes. Before proceeding, wait until you see the data source and index name in place of the status.
+2. Click **+ New Index**.
+3. Select the **Data Source** (choose **Data** in AI Foundry since we established the connection and created the data).
+4. Select the data you created in the previous step.
+5. **Index configuration**: Choose your **AI Search** service name, then assign a **vector index name** you prefer. The compute level might be auto-selected; for better performance, consider a higher compute tier.
+6. Choose the **AOAI Service** connection that was set up when creating the project.
+7. **Create vector index**.
+8. You’ll see a status indicating your data ingestion is in progress. This can take a few minutes or more, depending on the data volume and resource limits. Wait until the **status** changes to show your data source and index name instead of “In progress.”
 
 ![Creating a Vector Index](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/vector12.png)
 
-> **TIP**: If you're curious about the steps happening on the back end, click on the job details, and it will take you to [https://ml.azure.com](https://ml.azure.com) and show all the jobs and steps it is running for vector indexing. This will take a lot of time depending on the number of documents you have and the type of resources and limits you use on all the components involved in this step.
+> **TIP**: If you’re curious about what’s happening behind the scenes, click on the job details to visit [https://ml.azure.com](https://ml.azure.com). You can see the jobs and steps running for vector indexing. The duration depends on how many documents you have and how your resources are sized.
 
 ![Vector Indexing Status](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7b4a95aa515d6cea3bffc4253b32ac0981bb527a/04-AI%20Chatbot/Reference%20Pictures/vector13.png)
 
@@ -351,29 +362,30 @@ h. Now we will go ahead and create the Index for the already connected custom da
 
 ### 7. Add Your Custom Data to Your Chat Model
 
-a. Go to your project in Azure AI Foundry.  
-b. Select **Playgrounds** and **try the chat playground**.  
-c. Select **Add your data**.  
-d. Select the available project index, the one we created in the last step.  
-e. Search type: leave it as hybrid.  
-f. No other changes; this chatbot is ready to test with custom data.  
-g. This is ready to test. Refresh the page, give it a minute, and then test some specific questions like:
-   - what is the Address of ADDR-29841?
-   - what is the ApplicationID of the customer CLI-19708?
-   - how many clients does Wayne Enterprises company have?
-   - how many addresses are from texas?
-   - can you list down all the address ID for the addresses from texas?
+a. In your **project** on **Azure AI Foundry**, select **Playgrounds**, then **try the chat playground**.  
+b. Click **Add your data**.  
+c. Choose the **project index** you created in the last step.  
+d. For **Search type**, leave it as **hybrid**.  
+e. No other changes needed; your chatbot is now configured with **custom data**.  
+f. After a refresh, give it a moment and then try asking specific questions like:
+   - *What is the Address of ADDR-29841?*
+   - *What is the ApplicationID of the customer CLI-19708?*
+   - *How many clients does Wayne Enterprises company have?*
+   - *How many addresses are from Texas?*
+   - *Can you list all the address IDs for the addresses from Texas?*
 
-Congratulations!  
-You have now trained the model with your own data, and it is ready to serve you with domain-specific answers. There are two things to notice:
-- If you are uploading data in txt format, the answers will be much better.
-- If you are using csv, the answers might be inconsistent.
+**Congratulations!**  
+You have now trained the model with **your own data**, and it’s ready to provide **domain-specific answers**. Notice:
 
-Milestone #4 will solve these problems with an AI agent.
+- If you use **txt** format, responses are often better.
+- If you use **csv**, you might see **inconsistent** answers.
 
-If you used csv data as the source, you can upload the data, create an index, and vectorize the data using txt files to check the results. This approach will yield better results than using csv files.
+**Milestone #4** will help address some of these limitations by leveraging an **AI agent**.
 
-You will also notice that the app can quickly retrieve individual details. However, it struggles with bulk responses. This is a limitation of the current configuration, which is why more frameworks and customization are needed to make the application more powerful.
+If you’re using csv data as the source, consider uploading data and creating an index with **txt** files to see if results improve.
+
+You might also notice the app retrieves individual details easily but struggles with **bulk responses**. This is a limitation of the current setup—more **frameworks** or **customization** will be needed for broader or more complex queries.
+---
 
 ### Milestone #2: Result
 
@@ -653,20 +665,19 @@ These 4 milestones represent the journey of GenAI apps over the last 24-36 month
 
 ### Milestone #4: Result ✨
 
-The output will be more accurate, giving you answers just like how you query structured data, but without having to remember any syntax and can be done in human-readable prompts. 🤩 The next step is to use different frameworks and create different agents to achieve specific goals for your organization. 🎯 It can be multi-agent, single agent using different frameworks, different sources of data, and then deploy all this as a web app or simple websites (which use Azure web apps) or using Python programming (there are lightweight packages to deploy this as websites). 🌐
+Your results are **significantly more accurate**, enabling you to query semi-structured or unstructured data in **human-readable prompts** without memorizing any syntax. 🤩 Next, you can explore different frameworks and create other **agents** to fulfill various organizational needs. 🎯 These can include multi-agent systems, single agents working across multiple frameworks or data sources, and potentially deploying your solution as a **web app** or simple site (e.g., using Azure Web Apps), or via Python-based lightweight deployment packages. 🌐
 
-Now we have solved all the use cases of reading different source files and getting responses based on the source data. 🥳 At this point, the intelligence of the app is the same as that of the intelligence of the prompt engineer who is asking the question. How can you make that also better? Enter multi-agent applications! 🧠 These are small, separate autonomous systems that will talk in parallel, serial, or in back-and-forth conversations, giving you a final reformed product that otherwise would take hours to find out. 🚀
-Learn more about multi-agent AI applications in the coming challenge! 📚
+Having addressed all the use cases of reading different source files to retrieve domain-specific answers, 🥳 you’ve extended your application’s intelligence to match the expertise of the prompt engineer’s queries. But how do we push it further? **Enter multi-agent applications**! 🧠 These are small, autonomous subsystems that operate in parallel, in series, or back-and-forth to deliver a refined product—work that might otherwise require hours of manual analysis. 🚀  
+Stay tuned to learn more about **multi-agent AI applications** in upcoming challenges! 📚
 
-Congratulations once again!!!! 👏
+**Congratulations** once again! 👏
+
+---
 
 ### Extra Credits 🌟
 
-- Deploy your web app using the new deployment you just finished and test it. 🚀
-- Understand the difference between Temperature and P value, play around with them and see how the results vary. 🌡️
-- Change the model instruction and context, in a funny way or in a tone used by your favorite movie character. 🎭
-- Check out more details on how Fabric can be used as a source for the AI app, when it will be in preview, and when it will be GA. 🧵
+- **Deploy your web app** using the new deployment. Test it to see how it behaves in a real environment. 🚀  
+- Experiment with **Temperature** and **P value** to understand how they influence response creativity and variability. 🌡️  
+- **Customize** the model’s context or instructions with a humorous or thematic style—maybe channel your favorite movie character’s voice. 🎭  
+- Investigate how **Microsoft Fabric** can act as a data source for your AI app, noting when new features might be in preview or GA. 🧵  
 
-### Clean Up 🧹
-
-You can remove the deployments one by one and once done, get rid of the resource group you created, and that should clean up everything. 🗑️ Do it the next day after the lab so that you can revisit in case of any doubts for a good 12 hours. ⏳
