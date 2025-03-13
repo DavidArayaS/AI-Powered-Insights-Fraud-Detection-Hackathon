@@ -17,6 +17,7 @@ This guide provides a simple yet effective approach to monitor and improve your 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d6f39bdd8471a2a2ba4d36e8265e61bbd1cd5894/06-Security%20%26%20Compliance/Reference%20Pictures/%7B28D3690A-F2DB-4C78-86C6-AAF04C277AB3%7D.png)
 
 🎯 Step 2: Enable Security Features
+
 📌 Turn on the following Defender Plans to secure your workloads:
 
 ✅ Foundational CSPM (Cloud Security Posture Management) - Free Benefit
@@ -26,8 +27,9 @@ This guide provides a simple yet effective approach to monitor and improve your 
 Helps identify misconfigurations & security risks.
 Provides security recommendations for Azure resources.
 
-✅ Defender for Storage
-Protects against ransomware, unauthorized access, and data exfiltration.
+✅ Defender for Storage:
+
+    Protects against ransomware, unauthorized access, and data exfiltration.
 
 ✅ Defender for AI Workloads
 
@@ -36,8 +38,9 @@ Protects against ransomware, unauthorized access, and data exfiltration.
 Detects anomalous behavior in AI models and workloads.
 Provides real-time monitoring for OpenAI & ML models.
 
-✅ Defender for Key Vault
-Prevents unauthorized access to secrets, certificates, and keys.
+✅ Defender for Key Vault:
+
+    Prevents unauthorized access to secrets, certificates, and keys.
 
 # 🎯 Step 3: Check Your Security Posture Score
 
@@ -47,11 +50,13 @@ Prevents unauthorized access to secrets, certificates, and keys.
 
 🛠️ Best Practices for Improving Security Posture:
 
-Ensure Role-Based Access Control (RBAC): Assign least privilege access.
-Monitor Compliance Recommendations in Defender for Cloud.
-Set up Security Alerts & Auto-remediation policies.
+    Ensure Role-Based Access Control (RBAC): Assign least privilege access.
 
-🎯 Goal: Aim for a Secure Score >75% by following the security recommendations.
+    Monitor Compliance Recommendations in Defender for Cloud.
+
+    Set up Security Alerts & Auto-remediation policies.
+
+# 🎯 Goal: Aim for a Secure Score >75% by following the security recommendations.
 
 # 🔹 Part 2: Microsoft Fabric Security - Protecting Data in the Lakehouse
 
