@@ -4,8 +4,9 @@
 In this challenge, you will:
 
 ✅ Create, Define, and Explore LLMs for a Chatbot and the Resources Needed to Set Up the Same.  
-✅ Add Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding.  
+✅ Add Custom Data to Your Project and Explore the Response of Chatbot Post Indexing and Grounding.  
 ✅ Build & Customize – Create, Iterate, and Debug Your Orchestration Flows.
+✅ Learn how to use frameworks to programatically create AI agents and achive tailormade solutions for complex use cases with more flexiblity
 
 ---
 
@@ -25,7 +26,7 @@ In this challenge, you will:
   - North Central US
   - Sweden Central
   - Switzerland
-- Check the TPM quota for your subscription for the LLMs `text-embedding-ada-002` and `gpt-35-turbo-16k`. If you are already familiar with the same, request a quota addition if the current quota is in the 2-digit range (10k–90k) and increase it to whatever is maximum for each model.
+- Check the TPM quota for your subscription for the LLMs `text-embedding-ada-002` and `gpt-35-turbo-16k` and `gpt-35-turbo-instruct`. If you are already familiar with the same, request a quota addition if the current quota is in the 2-digit range (10k–90k) and increase it to whatever is maximum for each model.
 
 ---
 
@@ -85,6 +86,12 @@ Once the conversion is completed you can use a **Data Factory copy job** to copy
 **Alternatively**, to keep this challenge simpler, you can **manually** do it:
 
 - Get the `.xls` files and **save them locally** in `.txt` or `.csv` format.  
+
+**TIP**:Use .txt formart for 1,2,3 milestones and use .csv for 4 milestone,have all versions ready and uploaded so you can get used to different formats 
+inside the refined-data container create csv-data ,txt-data subfolders and and all the files inside that folder and upload it 
+Do not worry about the way data will be uploaded into the source ,in reality most of the times it will be bulk load and incremental on daily basis or hourly basis we
+can achive that with many automated processes .
+
 - Save them inside a **subfolder**.  
 - This folder can then be **uploaded** to the **parent container** in our storage account once the storage account creation steps are completed.  
 
@@ -250,11 +257,12 @@ You need two models:
 7) **Apply changes**.
 8) **Test the chatbot** with the question “What do you do?” to see a context-specific response. Notably, if you asked the same question before updating the context, the answer would have been more generic.
 
+## 🚀 Milestone #1: Result
+
 ---
-
-## 🚀 Milestone #1: Define & Explore
-
 You can test the model by opening the **playground** and chatting with it. Ask some generic questions, and you’ll get generic answers. At this point, the model is looking for data it was originally trained on and is **not yet grounded** in **your custom data**. However, we did manage to tailor the instructions and context to yield more specific responses.
+
+---
 
 ---
 
@@ -392,11 +400,13 @@ You’ve trained the model with **your data**, giving domain-specific answers. N
 
 If you used **csv** data, consider **txt** for better results. You’ll also see it’s easy to get single-record details but harder to do **bulk** responses—this setup needs more advanced frameworks or custom solutions for bigger queries.
 
----
-
 ## 🚀 Milestone #2: Result
 
+---
+
 You can **Build & Customize** a Generative AI app with your **own custom data**. Now, when you ask the same question as before, it references **your** data. Check the **References** button to see the underlying details.
+
+---
 
 ---
 
@@ -499,6 +509,7 @@ You can **Build & Customize** a Generative AI app with your **own custom data**.
 
 ### Milestone #3: Result
 
+---
 The sample prompt flow you are using implements the prompt logic for a chat application in which the user can iteratively submit text input to the chat interface. The conversational history is retained and included in the context for each iteration. With this, the challenge #3 is completed; we still have not solved the problem of bulk response query or rather SQL-formatted queries in human language. Hungry for more? Let’s explore further!
 
 ---
@@ -560,12 +571,7 @@ Pylance
 Python  
 Python Debugger  
 Python snippets
-
-
-## At this point using the VScode terminal make sure you are connecting into the Azure environment 
-you can use  
-
-- azd auth login **If Azure developwe CLi is not installed we can install it provided we have admin rights on the laptop**
+```
 
 ### 3. Write the python Code using Langchain framework and read the csv from storage account ,combine and get it ready for querying using an agent,deploy an agent and invoke the agent to get answers
 
@@ -581,19 +587,13 @@ you can use
 %pip install azure-storage-blob
 ```
 
-2. Import the needed packages
+2. Import the necessary packages and also connect to the Azure subscription, gather the details, get the CSV files in a loop, and combine them together using dataframes and place it in a single file
 
 ```python
 import openai
-print(openai.__version__)
 import pandas as pd
 from io import StringIO
 from azure.storage.blob import BlobServiceClient
-```
-
-3. Connect to the Azure subscription, gather the details, get the CSV files in a loop, and combine them together using dataframes and place it in a single file
-
-```python
 connection_string = "<<connectionstrong of your storage account>>"
 container_name = "refined-data"
 blob_names = ["DimAddress.csv", "DimApplicant.csv", "DimClient.csv", "factfinancial.csv"]
@@ -614,14 +614,15 @@ for blob_name in blob_names:
 combined_df = pd.concat(dataframes, ignore_index=True)
 print(combined_df.head())
 ```
-4. Save the combined DataFrame to a CSV file
+
+3. Save the combined DataFrame to a CSV file and save locally
 
 ```python
 combined_csv_path = "combined.csv"
 combined_df.to_csv(combined_csv_path, index=False)
 ```
 
-5. Connect to the OpenAI resource which we created earlier
+4. Connect to the OpenAI resource and the deployment which we created earlier
 
 ```python
 from langchain_openai import AzureOpenAI
@@ -668,19 +669,20 @@ These 4 milestones represent the journey of GenAI apps over the last 24-36 month
 
 ## 🚀 Milestone #4: Result ✨
 
+---
 Your results are **significantly more accurate**, enabling you to query semi-structured or unstructured data in **human-readable prompts** without memorizing any syntax. 🤩 Next, you can explore different frameworks and create other **agents** to fulfill various organizational needs. 🎯 These can include multi-agent systems, single agents working across multiple frameworks or data sources, and potentially deploying your solution as a **web app** or simple site (e.g., using Azure Web Apps), or via Python-based lightweight deployment packages. 🌐
 
 Having addressed all the use cases of reading different source files to retrieve domain-specific answers, 🥳 you’ve extended your application’s intelligence to match the expertise of the prompt engineer’s queries. But how do we push it further? **Enter multi-agent applications**! 🧠 These are small, autonomous subsystems that operate in parallel, in series, or back-and-forth to deliver a refined product—work that might otherwise require hours of manual analysis. 🚀  
 Stay tuned to learn more about **multi-agent AI applications** in upcoming challenges! 📚
 
 **Congratulations** once again! 👏
-
 ---
 
 ### Extra Credits 🌟
 
 - **Deploy your web app** using the new deployment. Test it to see how it behaves in a real environment. 🚀  
+- **Deploy your app using cosmos DB** so that the emeddings and vector data and actual data will both be stored in the same place 🚀
+- **Enable CICD Pipeline** enable contnious integration and deployment using gitops for LLM models 🚀    
 - Experiment with **Temperature** and **P value** to understand how they influence response creativity and variability. 🌡️  
 - **Customize** the model’s context or instructions with a humorous or thematic style—maybe channel your favorite movie character’s voice. 🎭  
-- Investigate how **Microsoft Fabric** can act as a data source for your AI app, noting when new features might be in preview or GA. 🧵  
-
+- Investigate how **Microsoft Fabric** can act as a data source for your AI app,which all features are in preview and what all are GA. 🧵 
