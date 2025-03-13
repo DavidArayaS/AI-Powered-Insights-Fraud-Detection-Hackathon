@@ -33,16 +33,16 @@ However, before we further develop on our Dev Environment, we need to understand
 ### Azure Agent Frameworks
 ----
 
-**Semantic Kernel**
+💡 **Semantic Kernel**
 
 - Semantic Kernel is a lightweight, open-source development kit ( SDK ) that lets you easily build AI agents and integrate the latest AI models into your C#, Python, or Java codebase. It serves as an efficient middleware that enables rapid delivery of enterprise-grade solutions.
 - In our previous challenge we leverage ** LangChain ** which is an opensource Framework to demostrate ease of integration. 
 
-**AutoGen**
+💡 **AutoGen**
 
 - AutoGen is an open-source programming framework for building AI agents and facilitating cooperation among multiple agents to solve tasks. AutoGen aims to provide an easy-to-use and flexible framework for accelerating development and research on agentic AI.
 
-**Langgraph**
+💡 **Langgraph**
 
 - It is an specialized library within the LangChain ecosystem specifically designed for building statefull multi-agent systems. 
 
@@ -53,7 +53,7 @@ Now that we have a clear scope of Services, Frameworks and Tools to leverage, le
 
 ----
 
-## Understanding Azure Solution Accelerators
+🚀 ## Understanding Azure Solution Accelerators
 ----
 Solution accelerators are pre-built, open-source solutions designed to accelerate proof of value. 
 They provide a starting point for the most common scenarios and are adaptable to partners' and customers' business needs.
