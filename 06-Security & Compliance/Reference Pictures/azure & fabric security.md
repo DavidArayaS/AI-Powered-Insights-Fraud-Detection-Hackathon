@@ -9,7 +9,9 @@ This guide provides a simple yet effective approach to monitor and improve your 
 🎯 Step 1: Access Defender for Cloud
 
 1️⃣ Log in to Azure Portal → Search for Defender for Cloud.
+
 2️⃣ Navigate to Environment Settings.
+
 3️⃣ Find the subscription where your fraud detection solution is deployed.
 
 ![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d6f39bdd8471a2a2ba4d36e8265e61bbd1cd5894/06-Security%20%26%20Compliance/Reference%20Pictures/%7B28D3690A-F2DB-4C78-86C6-AAF04C277AB3%7D.png)
