@@ -29,7 +29,7 @@ Each participant must have:
 ### 🔹 Subscription Requirements  
 Participants must have access to an **Azure subscription** with the following:  
 
-- **Shared Subscription or Resource Group**: Ideally, your **team should leverage the same subscription or resource group** for seamless collaboration.  
+- **Shared Subscription or Resource Group** in your Company's Tenant (Dev, Test, SandBox): Ideally, your **team should leverage the same subscription or resource group** for seamless collaboration.  
 - **RBAC Role**:  
   - At least **one team member** must have **Contributor + User Access Administrator** permissions.  
   - The rest of the team should have **Contributor access** to the subscription or a dedicated resource group.  
