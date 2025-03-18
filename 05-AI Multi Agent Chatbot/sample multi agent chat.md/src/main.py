@@ -8,7 +8,7 @@ from agents.agent2 import Agent2
 from data_source import DataSource
 
 # Initialize Azure Blob Storage connection
-connection_string = "<<your storage account connection sting>>"
+connection_string = "DefaultEndpointsProtocol=https;AccountName=<<your storage account name >>;AccountKey=<<storage account key>>"
 container_name = "refined-data"
 blob_names = ["DimAddress.csv", "DimApplicant.csv", "DimClient.csv", "factfinancial.csv"]
 
