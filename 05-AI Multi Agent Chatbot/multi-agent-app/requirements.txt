@@ -1,0 +1,7 @@
+openai
+langchain
+pandas
+langchain_experimental
+langchain_openai
+tabulate
+azure-storage-blob
