@@ -7,7 +7,12 @@
                 "recurrence": {
                     "interval": 1,
                     "frequency": "Minute",
-                    "timeZone": "[INSERT_TIMEZONE_HERE]"
+                    "timeZone": "Central America Standard Time"
+                },
+                "evaluatedRecurrence": {
+                    "interval": 1,
+                    "frequency": "Minute",
+                    "timeZone": "Central America Standard Time"
                 },
                 "splitOn": "@triggerBody()",
                 "type": "ApiConnection",
@@ -18,10 +23,11 @@
                         }
                     },
                     "method": "get",
-                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('[INSERT_STORAGE_NAME_HERE]'))}/triggers/batch/onupdatedfile",
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('<<Your Storage Account Name>>'))}/triggers/batch/onupdatedfile",
                     "queries": {
-                        "folderId": "[INSERT_FOLDER_ID_HERE]",
-                        "maxFileCount": 10
+                        "folderId": "<<Your  Incoming COntainer FolderID>>",
+                        "maxFileCount": 10,
+                        "checkBothCreatedAndModifiedDateTime": false
                     }
                 },
                 "conditions": [
@@ -42,13 +48,44 @@
                         }
                     },
                     "method": "post",
-                    "body": "{\"urlSource\":\"https://[INSERT_STORAGE_ACCOUNT_HERE].blob.core.windows.net/[INSERT_CONTAINER_NAME_HERE]/@{triggerOutputs()?['body']['name']}\"}",
+                    "body": "{\"urlSource\":\"https://<<Your Storage Account Name>>.blob.core.windows.net/<<Your Json Container Name>>/@{triggerOutputs()?['body']['name']}\"}",
                     "headers": {
                         "Content-Type": "application/json"
                     },
                     "path": "/documentModels/prebuilt-invoice:analyze",
                     "queries": {
                         "api-version": "2023-07-31"
+                    }
+                }
+            },
+            "Create_blob_(V2)": {
+                "runAfter": {
+                    "Analyze_Document_for_Prebuilt_or_Custom_models_(v4.x_API)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob-1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "body": "@body('Analyze_Document_for_Prebuilt_or_Custom_models_(v4.x_API)')",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('<<Your storage account name>>'))}/files",
+                    "queries": {
+                        "folderPath": "<<Your Json folder container name>>/",
+                        "name": "analyzed-invoice-@{triggerOutputs()?['body']['name']}.json",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
                     }
                 }
             }
