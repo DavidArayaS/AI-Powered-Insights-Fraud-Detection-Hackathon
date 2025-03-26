@@ -87,6 +87,8 @@ In this challenge, you will:
 
 ![Logic App Designer](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/e024909d204fcec26d119ad58624d6d9fb2155b8/02-Document%20Intelligence/%7B8A2476E2-66BB-4D02-997C-5B06AD014A6C%7D.png)
 
+## TIP: Storage Account Folder ID: **az storage container show --name --account-name**
+
 ✅ **Outcome**: The Logic App automatically analyzes PDFs and saves JSON outputs in the Storage Account.  
 
 ---
@@ -181,7 +183,7 @@ If you want a faster approach, paste the following JSON into the **Logic App Cod
 
 ### 🔹 Hints:  
 - Logic App  
-- Fabric Copy Pipeline  
+- Fabric Copy Job 
 - ADF Pipeline  
 - Manual Upload  
 
