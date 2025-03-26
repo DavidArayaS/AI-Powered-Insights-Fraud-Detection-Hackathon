@@ -10,7 +10,7 @@ This repository serves as a **comprehensive blueprint** for organizing a **high-
 
 ## 🗺️ Solution Architecture
 
-![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/7a77393255aa2071215c87b331e03830de696dd5/Architecture/Architecture.jpeg)
+![alt text](https://github.com/DavidArayaS/AI-Powered-Insights-Fraud-Detection-Hackathon/blob/d49af1a51d637e9c2a28d304322e48e9050f2d13/Architecture/Architecture.jpeg)
 
 ---
 
